@@ -5,8 +5,7 @@
 {% block container %}
   <div class="container-fluid">
     <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="token" value="{{token}}"/>
-      <input type="hidden" name="uid" value="{{uid}}"/>
+      {% csrf_token %}
       <input type="hidden" name="custom_uid" value="{{custom_uid}}"/>
       <div class="form-group">
         <label>Numero Destino</label>
