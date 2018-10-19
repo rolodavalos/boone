@@ -14,6 +14,8 @@ def sendMessage(request):
   if request.method=='POST':
     form=WhatForm(request.POST)
     if form.valid():
+      client = requests.session()
+      csrftoken = client.cookies['csrftoken']
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
       data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
