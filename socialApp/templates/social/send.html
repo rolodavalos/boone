@@ -4,7 +4,7 @@
 {% endblock %}
 {% block container %}
   <div class="container-fluid">
-    <form action="{%url 'send_message'%}">
+    <form action="https://www.waboxapp.com/api/send/chat" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label>Numero Destino</label>
         <input type="text" name="to" class="form-control"/> 
