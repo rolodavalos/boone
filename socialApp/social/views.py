@@ -8,7 +8,7 @@ form social.forms import WhatForm
 
 def sendMessage(request):
   if request.method=='POST':
-    form=WhatForm(request.method.POST)
+    form=WhatForm(request.POST)
   else:
     form=WhatForm()
   return render(request,'social/send.html')  
