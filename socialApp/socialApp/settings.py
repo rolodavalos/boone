@@ -25,7 +25,7 @@ SECRET_KEY = '*cj#ag^b1y&9lqb8n_i839sm1)hgeu@%ak--df%po^_y(ve3o%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [social.solvan.com.py]
+ALLOWED_HOSTS = ['social.solvan.com.py']
 
 
 # Application definition
