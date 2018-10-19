@@ -22,5 +22,5 @@ def sendMessage(request):
       result = response.read()
   else:
     form=WhatForm()
-  return render(request,'social/send.html',{'token':token,'uid':uid,'custom_uid':custom_uid})  
+  return render(request,'social/send.html',{'message':result})  
     
