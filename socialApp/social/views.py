@@ -20,8 +20,9 @@ def sendMessage(request):
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urllib2.urlopen(req) 
       result = response.read()
-      print(result)
-      message= result["success"]
+      for j in response
+        message=j["success]
+      endfor
       return render(request,'social/send.html',{'message':message})  
   else:
     form=WhatForm()
