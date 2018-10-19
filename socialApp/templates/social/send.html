@@ -7,12 +7,12 @@
 {% endblock %}
 {% block container %}
   <div class="container-fluid col-8">
-    {%if message=='true' %}
+    {%ifequal message 'true' %}
     <div class="alert alert-success" role="alert">
       <p>El mensaje ha sido enviado correctamente.</p>
     </div>  
     
-    {%endif%}
+    {%endifequal%}
     <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="form-group">
