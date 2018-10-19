@@ -19,5 +19,5 @@ from social.views import views as social_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('social/', social_views.show,'show'),
+    url('social/', social_views.sendMessage,name='sendMessage'),
 ]
