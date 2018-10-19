@@ -4,6 +4,7 @@ from django.shortcuts import render
 from social.forms import WhatForm
 from django.utils.crypto import get_random_string
 import urllib, urllib2
+import json
 
 # Create your views here.
 
@@ -19,8 +20,9 @@ def sendMessage(request):
       data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urllib2.urlopen(req) 
-      result = response.read()
-      message=result[0][0]
+      data=json.load(response)
+      #result = response.read()
+      message=data['success']
       print(message)
       return render(request,'social/send.html',{'message':message})  
   else:
