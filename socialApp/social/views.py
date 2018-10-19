@@ -21,7 +21,7 @@ def sendMessage(request):
       response = urllib2.urlopen(req) 
       result = response.read()
       for j in result:
-        message=j["success"]
+        message=j[0]
       return render(request,'social/send.html',{'message':message})  
   else:
     form=WhatForm()
