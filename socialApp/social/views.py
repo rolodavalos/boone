@@ -13,7 +13,7 @@ def sendMessage(request):
   custom_uid= get_random_string(length=15)
   if request.method=='POST':
     form=WhatForm(request.POST)
-    if form.valid():
+    if form.is_valid():
       client = requests.session()
       csrftoken = client.cookies['csrftoken']
       to=form.cleaned_data.get("to")
