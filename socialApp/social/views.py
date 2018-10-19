@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-form social.forms import WhatForm
+from social.forms import WhatForm
 
 # Create your views here.
 
