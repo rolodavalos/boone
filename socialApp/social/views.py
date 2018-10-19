@@ -2,9 +2,14 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+form social.forms import WhatForm
 
 # Create your views here.
 
-def show(request):
-  return render("")
-  
+def sendMessage(request):
+  if request.method=='POST':
+    form=WhatForm(request.method.POST)
+  else:
+    form=WhatForm()
+  return render(request,'social/send.html')  
+    
