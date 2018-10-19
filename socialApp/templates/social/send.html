@@ -5,6 +5,9 @@
 {% block container %}
   <div class="container-fluid">
     <form action="https://www.waboxapp.com/api/send/chat" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="token" value="{{token}}"/>
+      <input type="hidden" name="uid" value="{{uid}}"/>
+      <input type="hidden" name="source_uid" value="{{source_uid}}"/>
       <div class="form-group">
         <label>Numero Destino</label>
         <input type="text" name="to" class="form-control"/> 
