@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+{%block head_content%}
+<title>Envio de Whatsapp</title>
+{%endblock%}
+{%block container%}
+  <div class="container-fluid">
+    <form action="{%url 'send_message'%}">
+      <div class="form-group">
+        <label>Numero Destino</label>
+        <input type="text" name="to" class="form-control"/> 
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea name="text" class="form-control">
+        </textaerea>
+      </div>
+    </form>
+  </div>
+{%endblock%}
