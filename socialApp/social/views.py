@@ -43,6 +43,7 @@ def hooks(request):
     else:
       print("Form no valido")
   else:
-    print("Hola que tal")      
+    print("Hola que tal")
+  return render(request,'social/send.html')  
     
     
