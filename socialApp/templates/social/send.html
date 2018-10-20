@@ -6,7 +6,10 @@
 <title>Envio de Whatsapp</title>
 {% endblock %}
 {% block container %}
-  <div class="container-fluid col-8">
+  <div class="container-fluid>
+   <div class="card">
+     <div class="card-header">Envio de Mensaje</div>
+     <div class="card-body">                       
     {%if message is not None %}
         {%if message%}
         <div class="alert alert-success" role="alert">
@@ -32,6 +35,7 @@
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+   </div>                                              
   </div>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- ** Don't forget to Add jQuery here ** -->
