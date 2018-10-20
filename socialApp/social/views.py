@@ -28,4 +28,8 @@ def sendMessage(request):
   else:
     form=WhatForm()
   return render(request,'social/send.html')  
+
+def hooks(request):
+  if request.method=='POST':
+    
     
