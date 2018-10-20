@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from social.forms import WhatForm
 from django.utils.crypto import get_random_string
+form social.forms import WhaboxForm
 import urllib, urllib2
 import json
 
@@ -31,5 +32,12 @@ def sendMessage(request):
 
 def hooks(request):
   if request.method=='POST':
+    form=WhaboxForm
+    is form.is_valid():
+      jdata=form.clean_jsonfield()
+      print(jdata['event'])
+      print(jdata['token'])
+      print(jdata['uid'])
+      
     
     
