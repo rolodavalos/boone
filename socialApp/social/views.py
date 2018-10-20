@@ -32,6 +32,8 @@ def sendMessage(request):
 
 def hooks(request):
   print("Ingreso a la funcion Hooks")
+  
+  """
   if request.method=='POST':
     form=WhaboxForm(request.POST)
     if form.is_valid():
@@ -43,5 +45,5 @@ def hooks(request):
   else:
     print("Hola que tal")
   return render(request,'social/send.html')  
-    
+  """ 
     
