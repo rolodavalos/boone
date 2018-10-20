@@ -10,6 +10,7 @@ import json
 # Create your views here.
 
 def sendMessage(request):
+  print("Ingreso a la funcion SendMessage")
   token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
   uid='595991732060'
   custom_uid= get_random_string(length=15)
