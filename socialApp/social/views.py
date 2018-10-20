@@ -37,9 +37,7 @@ def hooks(request):
     form=WhaboxForm(request.POST)
     if form.is_valid():
       jdata=form.clean_jsonfield()
-      print(jdata['event'])
-      print(jdata['token'])
-      print(jdata['uid'])
+      print("La respuesta JSON es "+jdata)
     else:
       print("Form no valido")
       
