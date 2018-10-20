@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from social.forms import WhatForm
 from django.utils.crypto import get_random_string
-form social.forms import WhaboxForm
+from social.forms import WhaboxForm
 import urllib, urllib2
 import json
 
