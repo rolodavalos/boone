@@ -20,5 +20,5 @@ from social import views as social_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('social/', social_views.sendMessage,name='send_message'),
-    url('social/hooks/',social_views.hooks,name='hooks'),
+    url('social/hooks/',social_views.hooks.as_view(),name='hooks'),
 ]
