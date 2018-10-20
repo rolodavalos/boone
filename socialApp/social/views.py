@@ -4,6 +4,7 @@ from django.shortcuts import render
 from social.forms import WhatForm
 from django.utils.crypto import get_random_string
 from social.forms import WhaboxForm
+from django.views.decorators.csrf import csrf_exempt
 import urllib, urllib2
 import json
 
@@ -30,6 +31,7 @@ def sendMessage(request):
     form=WhatForm()
   return render(request,'social/send.html')  
 
+@csrf_exempt
 def hooks(request):
   if request.method=='POST':
     form=WhaboxForm
