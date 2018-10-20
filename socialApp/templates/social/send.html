@@ -10,8 +10,11 @@
     {%if message == 'True' %}
     <div class="alert alert-success" role="alert">
       <p>El mensaje ha sido enviado correctamente.</p>
-    </div>  
-    
+    </div> 
+    {%else%}
+    <div class="alert alert-danger" role="alert">
+      <p>El mensaje no ha sido enviado.</p>
+    </div>
     {%endif%}
     <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
