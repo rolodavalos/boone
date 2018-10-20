@@ -34,7 +34,7 @@ def sendMessage(request):
 
 def hooks(request):
   if request.method=='POST':
-    form=WhaboxForm()
+    form=WhaboxForm(request.POST)
     if form.is_valid():
       jdata=form.clean_jsonfield()
       print(jdata['event'])
