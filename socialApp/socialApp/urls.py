@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from social import views as social_views
-from django.views.decorators.csrf import csrf_exempt
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('social/', social_views.sendMessage,name='send_message'),
-    url('social/hooks/',csrf_exempt(social_views.hooks),name='hooks'),
+    url('social/hooks/',social_views.hooks,name='hooks'),
 ]
