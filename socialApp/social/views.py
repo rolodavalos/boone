@@ -33,7 +33,7 @@ def sendMessage(request):
 def hooks(request):
   if request.method=='POST':
     form=WhaboxForm
-    is form.is_valid():
+    if form.is_valid():
       jdata=form.clean_jsonfield()
       print(jdata['event'])
       print(jdata['token'])
