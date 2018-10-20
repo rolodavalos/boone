@@ -7,36 +7,38 @@
 {% endblock %}
 {% block container %}
   <div class="container-fluid>
-   <div class="card mb-4" style="width:80%">
+   <div class="card mb-4">
      <div class="card-header">Envio de Mensaje</div>
      <div class="card-body">                       
-    {%if message is not None %}
-        {%if message%}
-        <div class="alert alert-success" role="alert">
-          <p>El mensaje ha sido enviado correctamente.</p>
-        </div> 
-        {%else%}
-        <div class="alert alert-danger" role="alert">
-          <p>El mensaje no ha sido enviado.</p>
-        </div>
-        {%endif%}   
-    {%endif%}    
-    <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      <div class="form-group">
+        {%if message is not None %}
+          {%if message%}
+            <div class="alert alert-success" role="alert">
+              <p>El mensaje ha sido enviado correctamente.</p>
+            </div> 
+          {%else%}
+             <div class="alert alert-danger" role="alert">
+               <p>El mensaje no ha sido enviado.</p>
+             </div>
+          {%endif%}   
+        {%endif%}    
+        <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
         <label>Numero Destino</label>
         <input type="text" name="to" class="form-control" placeholder="5959XXXXXX"/> 
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
         <label>Mensaje</label>
         <p class="lead emoji-picker-container">
-          <textarea name="text" class="form-control textarea-control" data-emojiable="true"></textarea>
+        <textarea name="text" class="form-control textarea-control" data-emojiable="true"></textarea>
         </p>    
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-   </div>                                              
-  </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        </div>                                              
+    </div>
+  </div> 
+</div>                                                     
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- ** Don't forget to Add jQuery here ** -->
 <script src="{% static 'js/config.js' %}"></script>
@@ -45,3 +47,5 @@
 <script src="{% static 'js/emoji-picker.js' %}"></script>
 <!-- End emoji-picker JavaScript -->
 {% endblock %}
+                                               
+                                               
