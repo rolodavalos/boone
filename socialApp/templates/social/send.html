@@ -7,14 +7,16 @@
 {% endblock %}
 {% block container %}
   <div class="container-fluid col-8">
-    {%if message %}
-    <div class="alert alert-success" role="alert">
-      <p>El mensaje ha sido enviado correctamente.</p>
-    </div> 
-    {%else%}
-    <div class="alert alert-danger" role="alert">
-      <p>El mensaje no ha sido enviado.</p>
-    </div>
+    {%if meesage is not none%}
+      {%if message %}
+        <div class="alert alert-success" role="alert">
+          <p>El mensaje ha sido enviado correctamente.</p>
+        </div> 
+        {%else%}
+        <div class="alert alert-danger" role="alert">
+          <p>El mensaje no ha sido enviado.</p>
+        </div>
+        {%endif%}
     {%endif%}
     <form action="{%url 'send_message'%}" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
