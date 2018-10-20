@@ -33,9 +33,6 @@ def sendMessage(request):
   return render(request,'social/send.html')  
 
 def hooks(request):
-  var csrftoken = getCookie('csrftoken');
-  var headers = new Headers();
-  headers.append('X-CSRFToken', csrftoken);
   if request.method=='POST':
     form=WhaboxForm()
     if form.is_valid():
