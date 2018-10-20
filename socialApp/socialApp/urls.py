@@ -16,10 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from social import views as social_views
-from braces.views import CsrfExemptMixin
-
-class Object(CsrfExemptMixin, social_views):
-    authentication_classes = []
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
