@@ -51,7 +51,7 @@ def hooks(request):
     print("El mensaje DTM es: "+message_dtm)
     message_uid=request.POST.get("message[uid]")
     print("El mensaje ID es: "+message_uid)
-    message_cuid=request.POST.get("message[body][cuid]")
+    message_cuid=request.POST.get("message[cuid]")
     print("El mensaje CUID es: "+message_cuid)
     message_dir=request.POST.get("message[dir]")
     print("El mensaje DIR es: "+message_dir)
