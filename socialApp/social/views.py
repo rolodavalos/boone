@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 from django.shortcuts import render
 from social.forms import WhatForm
+form social.models import Whabox
 from django.utils.crypto import get_random_string
-from social.forms import WhaboxForm
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 import urllib, urllib2
