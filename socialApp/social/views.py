@@ -46,5 +46,7 @@ def hooks(request):
     print("El contacto es: "+contact_type)
     message_text=request.POST.get("message[body][text]")
     print("El mensaje es: "+message_text)
+    message_uid=request.POST.get("message[uid]")
+    print("El mensaje ID es: "+message_uid)
  
     return HttpResponse('pong')
