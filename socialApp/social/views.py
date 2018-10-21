@@ -33,18 +33,4 @@ def sendMessage(request):
 
 def hooks(request):
   print("Ingreso a la funcion Hooks")
-  
-  """
-  if request.method=='POST':
-    form=WhaboxForm(request.POST)
-    if form.is_valid():
-      print("Es valido")
-      jdata=form.clean_jsonfield()
-      print("La respuesta JSON es "+jdata)
-    else:
-      print("Form no valido")
-  else:
-    print("Hola que tal")
-  return render(request,'social/send.html')  
-  """ 
     
