@@ -37,5 +37,6 @@ def sendMessage(request):
 def hooks(request):
   if request.method=='POST':
     event=request.POST.get("event","")
-    print(event)
+    message=request.POST.get("message[0][0]","")
+    print(message)
     return HttpResponse('pong')
