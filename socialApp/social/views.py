@@ -6,6 +6,8 @@ from social.models import Whabox
 from django.utils.crypto import get_random_string
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from urllib.request import urlopen
+
 import urllib, urllib2
 import json
 
@@ -24,7 +26,7 @@ def sendMessage(request):
       text=form.cleaned_data.get("text")
       data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
-      response = urllib2.urlopen(req) 
+      response = urlopen.urlopen(req) 
       data=json.load(response)
       #result = response.read()
       message=data['success']
