@@ -44,7 +44,7 @@ def hooks(request):
     whabox.contact_type=request.POST.get("contact[type]")
     whabox.message_dtm=request.POST.get("message[dtm]")
     whabox.message_uid=request.POST.get("message[uid]")
-    whabox.message_uid=request.POST.get("message[cuid]")
+    whabox.message_cuid=request.POST.get("message[cuid]")
     whabox.message_dir=request.POST.get("message[dir]")
     whabox.message_type=request.POST.get("message[type]")
     whabox.message_text=request.POST.get("message[body][text]")
