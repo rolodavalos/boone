@@ -35,5 +35,5 @@ def sendMessage(request):
 @csrf_exempt
 def hooks(request):
   if request.method=='POST':
-    event=request.POST.get("event", "")
-    print(event)
+    received_json_data=json.loads(request.body)
+    print(received_json_data)
