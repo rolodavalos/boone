@@ -6,7 +6,7 @@ class WhatForm(forms.Form):
 	to=forms.CharField(max_length=100)
 	text=forms.CharField(max_length=100)
 	
-class WhaboxForm(forms.ModelForm):
+class WhaboxForm(forms.Form):
 	jsonfield = forms.CharField(max_length=1024)
 	def clean_jsonfield(self):
 		jdata = self.cleaned_data['jsonfield']
