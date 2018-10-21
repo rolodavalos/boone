@@ -32,6 +32,7 @@ def sendMessage(request):
   return render(request,'social/send.html')  
 
 def hooks(request):
+  print("El request es: "+request)
   print("Ingreso a la funcion Hooks")
   if request.method=='POST':
     form=WhaboxForm(request.POST)
