@@ -40,4 +40,9 @@ def hooks(request):
     print("El evento es: "+event)
     contact_uid=request.POST.get("contact[uid]")
     print("El contacto es: "+contact_uid)
+    contact_name=request.POST.get("contact[name]")
+    print("El contacto es: "+contact_name)
+    contact_type=request.POST.get("contact[type]")
+    print("El contacto es: "+contact_type)
+ 
     return HttpResponse('pong')
