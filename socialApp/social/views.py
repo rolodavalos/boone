@@ -36,6 +36,6 @@ def sendMessage(request):
 @csrf_exempt
 def hooks(request):
   if request.method=='POST':
-    event=request.POST.get("event")
+    event=request.POST.get("message[body]")
     print(event)
     return HttpResponse('pong')
