@@ -41,4 +41,6 @@ def hooks(request):
       print("Es valido")
       jdata=form.clean_jsonfield()
       print("La respuesta JSON es "+jdata) 
+    else:
+      print("Form no valid")
     
