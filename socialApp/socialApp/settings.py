@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'socialApp.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'socialappdb',
        'USER': 'postgres',
        'PASSWORD': 'PlsChgMe!85',
