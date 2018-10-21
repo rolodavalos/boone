@@ -12,7 +12,8 @@ import json
 # Create your views here.
 
 def sendMessage(request):
-  print("Ingreso a la funcion SendMessage")
+  
+  whabox_list=Whabox.objects.all()
   token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
   uid='595991732060'
   custom_uid= get_random_string(length=15)
@@ -28,7 +29,7 @@ def sendMessage(request):
       #result = response.read()
       message=data['success']
       print(message)
-      return render(request,'social/send.html',{'message':message})  
+      return render(request,'social/send.html',{'message':message,'whabox_list':whabox_list})  
   else:
     form=WhatForm()
   return render(request,'social/send.html')  
