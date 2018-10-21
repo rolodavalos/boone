@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('social/', social_views.sendMessage,name='send_message'),
     url('hooks',social_views.hooks,name='hooks'),
+    url('mensajes/',social_views.listMessages,name='list_messages'),
 ]
