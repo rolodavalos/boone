@@ -57,7 +57,7 @@ def hooks(request):
     print("El mensaje DIR es: "+message_dir)
     message_type=request.POST.get("message[type]")
     print("El mensaje TYPE es: "+message_type)
-    message_body=request.POST.get("message[body]")
+    message_text=request.POST.get("message[body][text]")
     print("El mensaje es: "+message_text)
     message_ack=request.POST.get("message[ack]")
     print("El ACK del mensaje es: "+message_ack)
