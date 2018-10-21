@@ -38,6 +38,8 @@ def hooks(request):
   if request.method=='POST':
     event=request.POST.get("event")
     print("El evento es: "+event)
+    token=request.POST.get("token")
+    print("El token es: "+token)
     contact_uid=request.POST.get("contact[uid]")
     print("El contacto es: "+contact_uid)
     contact_name=request.POST.get("contact[name]")
