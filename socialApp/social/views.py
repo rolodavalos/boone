@@ -35,5 +35,4 @@ def sendMessage(request):
 @csrf_exempt
 def hooks(request):
   if request.method=='POST':
-    received_json_data=json.loads(request.body)
-    print(received_json_data)
+    return HttpResponse('pong')
