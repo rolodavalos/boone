@@ -35,12 +35,5 @@ def sendMessage(request):
 @csrf_exempt
 def hooks(request):
   if request.method=='POST':
-    print("Ingreso al POST")
-    form=WhaboxForm(request.POST)
-    if form.is_valid():
-      print("Es valido")
-      jdata=form.clean_jsonfield()
-      print("La respuesta JSON es "+jdata) 
-    else:
-      print("Form no valid")
-    
+    event=request.POST.get("event", "")
+    print(event)
