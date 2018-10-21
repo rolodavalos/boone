@@ -53,3 +53,10 @@ def hooks(request):
     whabox.save()
     print(whabox)
     return HttpResponse('pong')
+  
+  def listMessages(request):
+    messages=Whabox.objects.all()
+    if request.method=='GET':
+      return render (request,'social/mensajes.html',{'messages':messages})
+    
+  
