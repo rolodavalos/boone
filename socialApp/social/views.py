@@ -38,6 +38,5 @@ def hooks(request):
     if form.is_valid():
       print("Es valido")
       jdata=form.clean_jsonfield()
-      print("La respuesta JSON es "+jdata)
-  return render(request,'social/send.html') 
+      print("La respuesta JSON es "+jdata) 
     
