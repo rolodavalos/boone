@@ -7,8 +7,7 @@ from django.utils.crypto import get_random_string
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from urllib.request import urlopen
-
-import urllib, urllib2
+import urllib
 import json
 
 # Create your views here.
