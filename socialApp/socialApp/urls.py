@@ -18,8 +18,8 @@ from django.contrib import admin
 from social import views as social_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^mensajes/<str:id>/',social_views.listMessages,name='list_messages'),
-    url(r'^social/', social_views.sendMessage,name='send_message'),
-    url(r'^hooks',social_views.hooks,name='hooks'),
+    url('admin/', admin.site.urls),
+    url('mensajes/<str:id>',social_views.listMessages,name='list_messages'),
+    url('social/', social_views.sendMessage,name='send_message'),
+    url('hooks',social_views.hooks,name='hooks'),
 ]
