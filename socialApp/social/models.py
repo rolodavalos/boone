@@ -18,5 +18,4 @@ class Whabox(models.Model):
 	message_ack=models.CharField(max_length=255)
 	
 	def __str__(self):
-		return event+" "+token+" "+contact_uid+" "+contact_name+" "+contact_type+" "+contact_name+" "+message_dtm+
-	" "+message_uid+" "+message_cuid+" "+message_dir+" "+message_type+" "+message_text+" "+message_ack
+		return event+" "+token+" "+contact_uid+" "+contact_name+" "+contact_type+" "+contact_name+" "+message_dtm+" "+message_uid+" "+message_cuid+" "+message_dir+" "+message_type+" "+message_text+" "+message_ack
