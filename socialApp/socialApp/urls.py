@@ -19,7 +19,7 @@ from social import views as social_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^mensajes/',social_views.listMessages,name='list_messages'),
+    url(r'^mensajes/<id:string>/',social_views.listMessages,name='list_messages'),
     url(r'^social/', social_views.sendMessage,name='send_message'),
     url(r'^hooks',social_views.hooks,name='hooks'),
 ]
