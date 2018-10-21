@@ -49,5 +49,5 @@ def hooks(request):
     whabox.message_type=request.POST.get("message[type]")
     whabox.message_text=request.POST.get("message[body][text]")
     whabox.message_ack=request.POST.get("message[ack]")
-    
+    print(whabox)
     return HttpResponse('pong')
