@@ -82,8 +82,8 @@ def hooks(request):
   
 def listMessages(request):
   
-  messages=Whabox.objects.all()
+  conversations=Conversation.objects.all()
   if request.method=='GET':
-    return render (request,'social/mensajes.html',{'messages':messages})
+    return render (request,'social/mensajes.html',{'conversations':conversations})
     
   
