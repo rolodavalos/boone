@@ -34,7 +34,7 @@ class Conversation(models.Model):
     	(3, ("FB")),
 	(4, ("IG")),
 	)
-	message_ciud=models.CharField(max_length=255)
+	message_cuid=models.CharField(max_length=255)
 	contact_uid=models.CharField(max_length=255)
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE)
