@@ -36,46 +36,18 @@
 		</div>
 		<div id="contacts">
 			<ul>
-				<li class="contact">
+				{%for conversation in conversations%}
+					<li class="contact">
 					<div class="wrap">
 						<span class="contact-status online"></span>
 						<img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
 						<div class="meta">
-							<p class="name">Louis Litt</p>
+							<p class="name">{{conversation.contact_uid}}</p>
 							<p class="preview">Disponible.</p>
 						</div>
 					</div>
 				</li>
-				<li class="contact active">
-					<div class="wrap">
-						<span class="contact-status busy"></span>
-						<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-						<div class="meta">
-							<p class="name">Harvey Specter</p>
-							<p class="preview">Disponible.</p>
-						</div>
-					</div>
-				</li>
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status away"></span>
-						<img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
-						<div class="meta">
-							<p class="name">Rachel Zane</p>
-							<p class="preview">Disponible.</p>
-						</div>
-					</div>
-				</li>
-				<li class="contact">
-					<div class="wrap">
-						<span class="contact-status"></span>
-						<img src="http://emilcarlsson.se/assets/danielhardman.png" alt="" />
-						<div class="meta">
-							<p class="name">Daniel Hardman</p>
-							<p class="preview"Disponible.</p>
-						</div>
-					</div>
-				</li>
+				{%endform%}
 			</ul>
 		</div>
 		<div id="bottom-bar">
