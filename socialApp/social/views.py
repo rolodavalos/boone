@@ -52,6 +52,36 @@ def hooks(request):
     whabox.message_text=request.POST.get("message[body][text]")
     whabox.message_ack=request.POST.get("message[ack]")
     whabox.save()
+  
+    conversations= Conversation.objects.filter(whabox.contact_uid)
+  
+    if conversations:
+      message=Message()
+      message.conversation=conversations.first()
+      message.message_text=whabox.message_text
+      message.estado=whabox.message_ack
+      message.user=request.user
+      message.save()
+      
+    else:
+      
+      #Crear nueva conversacion y adjuntar el mensaje
+      conversation=Conversation()
+      conversation.message_cuid=whabox.message_cuid
+      conversation.contact_uid=whabox.contact_uid
+      conversation.user=request.user
+      conversation.estado=1
+      conversation.tipo=2
+      conversation.save()
+      
+      #Guardar mensaje
+      message=Message()
+      message.conversation=connversations[0]
+      message.message_text=whabox.message_text
+      message.estado=whabox.message_ack
+      message.user=request.user
+      message.save()
+       
     print(whabox)
     return HttpResponse('pong')
   
