@@ -38,7 +38,6 @@ def sendMessage(request):
     form=WhatForm()
   return render(request,'social/send.html')  
 
-@login_required
 def hooks(request):
   if request.method=='POST':
     whabox= Whabox()
