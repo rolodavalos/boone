@@ -37,7 +37,7 @@ class Conversation(models.Model):
 	message_cuid=models.CharField(max_length=255)
 	contact_uid=models.CharField(max_length=255)
 	created=models.DateTimeField(auto_now_add=True)
-	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	estado= models.IntegerField(choices=STATUS)
 	tipo=models.IntegerField(choices=TYPE)
 	
@@ -52,7 +52,7 @@ class Message(models.Model):
 	message_text=models.CharField(max_length=255)
 	estado=models.IntegerField(choices=STATUS)
 	created=models.DateTimeField(auto_now_add=True)
-	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	
 	
 	
