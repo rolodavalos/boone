@@ -73,7 +73,7 @@ def hooks(request):
       
       #Guardar mensaje
       message=Message()
-      message.conversation=connversations[0]
+      message.conversation=conversations.first()
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
       message.save()
