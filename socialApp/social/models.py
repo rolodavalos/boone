@@ -19,12 +19,7 @@ class Whabox(models.Model):
 	
 	def __str__(self):
 		return self.event+" "+self.token+" "+self.contact_uid+" "+self.contact_name+" "+self.contact_type+" "+self.contact_name+" "+self.message_dtm+" "+self.message_uid+" "+self.message_cuid+" "+self.message_dir+" "+self.message_type+" "+self.message_text+" "+self.message_ack
-
 	
-class classification(models.Model):
-	title=models.CharFIeld(max_length=59)
-	descrip=models.CharFIeld(max_length=200)
-	user=models.ForeignKey(User,on_delete=models.CASCADE)
 	
 class Conversation(models.Model):
 	STATUS = (
@@ -53,7 +48,7 @@ class Message(models.Model):
 	(3, ("READ")),
 	)
 	conversation=ForeignKey(User,on_delete=models.CASCADE)
-	message_text=uid=models.CharField(max_length=255)
+	message_text=models.CharField(max_length=255)
 	estado=models.IntegerField(choices=STATUS)
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE)
