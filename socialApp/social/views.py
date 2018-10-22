@@ -80,10 +80,10 @@ def hooks(request):
     
     return HttpResponse('pong')
   
-def listMessages(request,id):
-  contact_uid=id
-  messages=Whabox.objects.filter(contact_uid=id)
+def listMessages(request):
+  
+  messages=Whabox.objects.all()
   if request.method=='GET':
-    return render (request,'social/mensajes.html',{'messages':messages,'contact_uid':contact_uid})
+    return render (request,'social/mensajes.html')
     
   
