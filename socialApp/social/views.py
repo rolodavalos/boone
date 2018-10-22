@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render
-from social.forms import WhatForm
-from social.models import Whabox, Conversation, Message
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+
+#Custom imports
+from social.forms import WhatForm
+from social.models import Whabox, Conversation, Message
 from urllib.request import urlopen
 import urllib
 import json
