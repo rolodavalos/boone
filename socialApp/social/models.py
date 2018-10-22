@@ -48,7 +48,7 @@ class Message(models.Model):
     	(2, ("DELIVERED")),
 	(3, ("READ")),
 	)
-	conversation=ForeignKey(User,on_delete=models.CASCADE)
+	conversation=ForeignKey(Conversation,on_delete=models.CASCADE)
 	message_text=models.CharField(max_length=255)
 	estado=models.IntegerField(choices=STATUS)
 	created=models.DateTimeField(auto_now_add=True)
