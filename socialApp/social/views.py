@@ -36,7 +36,7 @@ def sendMessage(request):
     form=WhatForm()
   return render(request,'social/send.html')  
 
-@csrf_exempt
+@login_required
 def hooks(request):
   if request.method=='POST':
     whabox= Whabox()
