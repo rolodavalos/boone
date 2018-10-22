@@ -53,7 +53,7 @@ def hooks(request):
     whabox.message_ack=request.POST.get("message[ack]")
     whabox.save()
   
-    conversations= Conversation.objects.filter(whabox.contact_uid)
+    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid)
   
     if conversations:
       message=Message()
@@ -64,7 +64,6 @@ def hooks(request):
       message.save()
       
     else:
-      
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
       conversation.message_cuid=whabox.message_cuid
