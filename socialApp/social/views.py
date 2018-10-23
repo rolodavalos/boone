@@ -143,7 +143,7 @@ def viewMessage(request,id):
       
     
   ###MOTRAR LOS MENSAJES CARAJO###
-  conversations=Conversation.order_by('-modified')
+  conversations=Conversation.objects.order_by('-modified')
   conversation= Conversation.objects.get(contact_uid=id)
   messages= Message.objects.filter(conversation__pk=conversation.pk)   
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
