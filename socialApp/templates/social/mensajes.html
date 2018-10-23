@@ -37,20 +37,12 @@
 		<div id="contacts">
 			<ul>
 				{%for conver in conversations%}
+					<h3>{{conver.contact_uid+" "+conversation.contact_uid}}<h3>
 					{%if conver.contact_uid==conversation.contact_uid %}
 					<li class="contact active">
-						<a href="/mensajes/{{conver.contact_uid}}" style="text-decoration: none;color: inherit;">	
-							<div class="wrap">
-								<span class="contact-status online"></span>
-								<div class="meta">
-									<p class="name">{{conver.contact_uid}}</p>
-									<p class="preview">Disponible.</p>
-								</div>
-							</div>
-						</a>	
-					</li>
 					{%else%}
-					<li class="contact">
+					<li class="contact">	
+					{%endif%}	
 						<a href="/mensajes/{{conver.contact_uid}}" style="text-decoration: none;color: inherit;">	
 							<div class="wrap">
 								<span class="contact-status online"></span>
@@ -61,7 +53,6 @@
 							</div>
 						</a>	
 					</li>
-					{%endif%}
 				{%endfor%}
 			</ul>
 		</div>
