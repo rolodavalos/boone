@@ -88,42 +88,42 @@ def listMessages(request):
 def viewMessage(request,id):
   if request.method=='POST':
     token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
-      uid='595991732060'
-      custom_uid= get_random_string(length=15)
-      form=WhatForm(request.POST)
-        if form.is_valid():
-          conversations= Conversation.objects.filter(contact_uid=to)
-          conversation= Conversation.objects.get(contact_uid=id)
-          to=form.cleaned_data.get("to")
-          text=form.cleaned_data.get("text")
+    uid='595991732060'
+    custom_uid= get_random_string(length=15)
+    form=WhatForm(request.POST)
+      if form.is_valid():
+        conversations= Conversation.objects.filter(contact_uid=to)
+        conversation= Conversation.objects.get(contact_uid=id)
+        to=form.cleaned_data.get("to")
+        text=form.cleaned_data.get("text")
           
-          #Comprobe messages
-          if conversations:
-            message=Message()
-            message.conversation=conversations.first()
-            message.message_text=text
-            message.estado=3
-            message.save() 
-          else:
-            #Crear nueva conversacion y adjuntar el mensaje
-            conversation=Conversation()
-            conversation.message_cuid=custom_uid
-            conversation.contact_uid=to
-            conversation.estado=1
-            conversation.tipo=2
-            conversation.save()
+        #Comprobe messages
+        if conversations:
+          message=Message()
+          message.conversation=conversations.first()
+          message.message_text=text
+          message.estado=3
+          message.save() 
+        else:
+          #Crear nueva conversacion y adjuntar el mensaje
+          conversation=Conversation()
+          conversation.message_cuid=custom_uid
+          conversation.contact_uid=to
+          conversation.estado=1
+          conversation.tipo=2
+          conversation.save()
       
-            #Guardar mensaje
-            message=Message()
-            message.conversation=conversation
-            message.message_text=whabox.message_text
-            message.estado=whabox.message_ack
-            message.save()
+          #Guardar mensaje
+          message=Message()
+          message.conversation=conversation
+          message.message_text=whabox.message_text
+          message.estado=whabox.message_ack
+          message.save()
           
-        #TO WHABOX
-        data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
-        req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
-        response = urlopen.urlopen(req)       
+      #TO WHABOX
+      data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
+      req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
+      response = urlopen.urlopen(req)       
         
   ###MOTRAR LOS MENSAJES CARAJO###
   conversations=Conversation.objects.all()
