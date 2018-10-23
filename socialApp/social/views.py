@@ -12,6 +12,7 @@ from django.http import HttpResponse
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
 from urllib.request import urlopen
+from urllib.request import Request
 from urllib.parse import urlencode
 import json
 
@@ -124,7 +125,7 @@ def viewMessage(request,id):
           
       #TO WHABOX
       data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
-      req = urllib.Request('https://www.waboxapp.com/api/send/chat', data) 
+      req = Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urlopen.urlopen(req)       
         
   ###MOTRAR LOS MENSAJES CARAJO###
