@@ -6,12 +6,6 @@
 {%endblock%}
 
 {%block container%}
-
-{% load common %}
-{%if conversation is None and conversations%}
-	{% set conversation = conversations[0] %}
-{%endif%}
-
 <div id="frame">
 	<div id="sidepanel">
 		<div id="profile">
