@@ -129,10 +129,11 @@ def viewMessage(request,id):
         message.save()
           
       #TO WHABOX
-      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
+      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}).encode("utf-8")
       req = Request('https://www.waboxapp.com/api/send/chat', data) 
-      response = urlopen(req)       
-        
+      with urlopen(req,data=data) as f:
+      resp = f.read()
+      print(resp)
   ###MOTRAR LOS MENSAJES CARAJO###
   conversations=Conversation.objects.all()
   conversation= Conversation.objects.get(contact_uid=id)
