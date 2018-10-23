@@ -38,7 +38,7 @@
 			<ul>
 				{%for conversation in conversations%}
 				<li class="contact">
-					<a href="#" style="text-decoration: none;color: inherit;">	
+					<a href="mensajes/{{conversation.contact_uid}}" style="text-decoration: none;color: inherit;">	
 					<div class="wrap">
 							<span class="contact-status online"></span>
 							<div class="meta">
@@ -60,9 +60,10 @@
 		<div class="contact-profile">
 			<p>{{contact_uid}}</p>
 			<div class="social-media">
-				<i class="fa fa-facebook" aria-hidden="true"></i>
+				<h3>{{contact_uid}}</h3>
+				<!--i class="fa fa-facebook" aria-hidden="true"></i>
 				<i class="fa fa-twitter" aria-hidden="true"></i>
-				 <i class="fa fa-instagram" aria-hidden="true"></i>
+				<i class="fa fa-instagram" aria-hidden="true"></i-->
 			</div>
 		</div>
 		<div class="messages">
