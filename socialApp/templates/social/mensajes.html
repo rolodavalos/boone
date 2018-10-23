@@ -87,7 +87,7 @@
 				
 			</ul>
 		</div>
-		<form method="POST" action="{% url 'save_message'%}">
+		<form method="POST" action="{% url 'view_message' id=conversation.contact_uid %}">
 		<div class="message-input">
 			<div class="wrap">
 			<input type="hidden" name="to" value="{{conversation.contact_uid}}"	
