@@ -67,11 +67,15 @@
 		</div>
 		<div class="messages">
 			<ul>
-				{%for message in messages %}
-				<li class="replies">
-					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-					<p><span class="">{{message.contact_uid}}:</span>{{message.message_text}}</p>
-				</li>
+				{%for conversation in conversations  %}
+					{%if conversation.contact_uid==id}
+						{%for message in conversation.message_set.all()%}
+							<li class="replies">
+								<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+								<p><span class="">{{message.contact_uid}}:</span>{{message.message_text}}</p>
+							</li>
+						{%endfor%}
+					{%endif%}	
 				{%endfor%}
 				<!--li class="replies">
 					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
