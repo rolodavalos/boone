@@ -93,7 +93,7 @@ def viewMessage(request,id):
     custom_uid= get_random_string(length=15)
     form=WhatForm(request.POST)
     if form.is_valid():
-      conversations= Conversation.objects.filter(contact_uid=to)
+      conversations= Conversation.objects.filter(contact_uid=id)
       conversation= Conversation.objects.get(contact_uid=id)
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
