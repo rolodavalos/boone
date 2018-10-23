@@ -87,7 +87,7 @@ def hooks(request):
     return HttpResponse('pong')
   
 def listMessages(request):
-  conversations=Conversation.objects.order_by('created')
+  conversations=Conversation.objects.order_by('-created')
   if conversations: 
     conversation=conversations[0]
     messages=Message.objects.filter(conversation__pk=conversation.pk)
