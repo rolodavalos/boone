@@ -88,7 +88,8 @@ def listMessages(request):
   
 def viewMessage(request,id):
    conversations=Conversation.objects.all()
-   messages= Message.objects.filter(conversation__customer_uid=id)
+   conversation= Conversation.objects.get(pk=id)
+   messages= Message.objects.filter(conversation__pk=conversation.pk)
    if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages}) 
     
