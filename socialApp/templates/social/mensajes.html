@@ -7,11 +7,11 @@
 
 {%block container%}
 
-{%
-if conversation is None:
-	if conversations:
-		conversation=conversations.first()
-%}
+{%if conversation is None%}
+{%if conversations%}
+{%conversation=conversations.first()%}
+{%endif%}
+{%endif%}
 
 <div id="frame">
 	<div id="sidepanel">
