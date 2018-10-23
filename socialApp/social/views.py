@@ -11,8 +11,11 @@ from django.http import HttpResponse
 #Custom imports
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
-from urllib2 import urlopen
+
+
+#URL LIBRARY
 from urllib.request import Request
+from urllib.parse import urlopen
 from urllib.parse import urlencode
 import json
 
