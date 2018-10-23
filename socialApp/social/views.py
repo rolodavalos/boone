@@ -17,6 +17,8 @@ from social.models import Whabox, Conversation, Message
 from urllib.request import Request
 from urllib.request import urlopen
 from urllib.parse import urlencode
+
+#JSON LIBRARY
 import json
 
 # Create your views here.
@@ -129,7 +131,7 @@ def viewMessage(request,id):
       #TO WHABOX
       data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = Request('https://www.waboxapp.com/api/send/chat', data) 
-     # response = urlopen(req)       
+      response = urlopen(req)       
         
   ###MOTRAR LOS MENSAJES CARAJO###
   conversations=Conversation.objects.all()
