@@ -8,7 +8,7 @@
 {%block container%}
 
 {%if conversation is None and conversations%}
-{{conversation=conversations.first()}}
+{% define conversations.first() as conversation %}
 {%endif%}
 
 <div id="frame">
