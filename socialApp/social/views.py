@@ -88,7 +88,7 @@ def hooks(request):
   
 def listMessages(request):
   conversations=Conversation.objects.all()
-  if conversation: 
+  if conversations: 
     conversation=conversations[0]
   if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation})
