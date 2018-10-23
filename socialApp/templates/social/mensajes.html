@@ -8,7 +8,7 @@
 {%block container%}
 
 {%if conversation is None and conversations%}
-{% with conversations[0] as conversation %}
+{% set conversation = conversations[0] %}
 {%endif%}
 
 <div id="frame">
