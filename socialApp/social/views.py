@@ -85,5 +85,13 @@ def listMessages(request):
   conversations=Conversation.objects.all()
   if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations})
+  
+def viewMessage(request,id):
+   conversations=Conversation.objects.all()
+   if request.method=='GET':
+    return render (request,'social/mensajes.html',{'conversations':conversations,'id':id}) 
+    
+  
+  
     
   
