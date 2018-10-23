@@ -124,7 +124,7 @@ def viewMessage(request,id):
           
       #TO WHABOX
       data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
-      req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
+      req = urllib.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urlopen.urlopen(req)       
         
   ###MOTRAR LOS MENSAJES CARAJO###
