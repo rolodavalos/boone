@@ -84,6 +84,8 @@ def listMessages(request):
   if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations})
   
+  
+  
 def viewMessage(request,id):
   if request.method=='POST':
     token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
