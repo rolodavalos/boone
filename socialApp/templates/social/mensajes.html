@@ -39,6 +39,12 @@
 				{%for conver in conversations%}
 					<h3>{{conver.contact_uid}}<h3>
 					<h3>{{conversation.contact_uid}}<h3>
+					{%if conver.contact_uid == conversation.contact_uid %}
+					<li class="contact active">	
+					{%else%}
+					<li class="contact">	
+					{%endif%}	
+						
 					<li class="contact">		
 						<a href="/mensajes/{{conver.contact_uid}}" style="text-decoration: none;color: inherit;">	
 							<div class="wrap">
