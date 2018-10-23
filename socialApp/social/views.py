@@ -90,8 +90,9 @@ def listMessages(request):
   conversations=Conversation.objects.all()
   if conversations: 
     conversation=conversations[0]
+    messages=Message.objects.filter(conversation__pk=conversation.pk)
   if request.method=='GET':
-    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation})
+    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
 def viewMessage(request,id):
   if request.method=='POST':
