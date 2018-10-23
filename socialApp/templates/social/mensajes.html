@@ -37,7 +37,7 @@
 		<div id="contacts">
 			<ul>
 				{%for conver in conversations%}
-					{%if conver.contact_uid=conversation.contact_uid %}
+					{%if conver.contact_uid==conversation.contact_uid %}
 					<li class="contact active">
 						<a href="/mensajes/{{conver.contact_uid}}" style="text-decoration: none;color: inherit;">	
 							<div class="wrap">
