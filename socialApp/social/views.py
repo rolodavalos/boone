@@ -61,13 +61,15 @@ def hooks(request):
     whabox.message_ack=request.POST.get("message[ack]")
     whabox.save()
     
-    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid)
-    if conversations:
+    conversation= Conversation.objects.get(contact_uid=whabox.contact_uid)
+    if conversation:
       message=Message()
+      conversation.modified=datetime.date.now()
       message.conversation=conversations.first()
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
       message.save() 
+      conversation.update()    
     else:
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
@@ -87,7 +89,7 @@ def hooks(request):
     return HttpResponse('pong')
   
 def listMessages(request):
-  conversations=Conversation.objects.order_by('-created')
+  conversations=Conversation.objects.order_by('-modified')
   if conversations: 
     conversation=conversations[0]
     messages=Message.objects.filter(conversation__pk=conversation.pk)
