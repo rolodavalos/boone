@@ -90,7 +90,6 @@
 		<form method="POST" action="{% url 'view_message' id=conversation.contact_uid %}">
 			<div class="message-input">
 				<div class="wrap">
-					<input type="hidden" name="to" value="{{conversation.contact_uid}}"/>	
 					<input type="text" name="text" placeholder="Escriba su mensaje..." />
 					<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
 					<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
