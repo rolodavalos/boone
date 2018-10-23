@@ -86,14 +86,8 @@ def listMessages(request):
     return render (request,'social/mensajes.html',{'conversations':conversations})
   
 def viewMessage(request,id):
-  conversations=Conversation.objects.all()
-  conversation= Conversation.objects.get(contact_uid=id)
-  messages= Message.objects.filter(conversation__pk=conversation.pk)   
-  return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
-      
-def save_message(request):
-  if request.method==POST:
-      token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
+  if request.method=='POST':
+    token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
       uid='595991732060'
       custom_uid= get_random_string(length=15)
       form=WhatForm(request.POST)
@@ -104,7 +98,6 @@ def save_message(request):
           text=form.cleaned_data.get("text")
           
           #Comprobe messages
-         
           if conversations:
             message=Message()
             message.conversation=conversations.first()
@@ -131,8 +124,13 @@ def save_message(request):
         data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
         req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
         response = urlopen.urlopen(req)       
-        return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
-          
+        
+  ###MOTRAR LOS MENSAJES CARAJO###
+  conversations=Conversation.objects.all()
+  conversation= Conversation.objects.get(contact_uid=id)
+  messages= Message.objects.filter(conversation__pk=conversation.pk)   
+  return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
+      
           
           
               
