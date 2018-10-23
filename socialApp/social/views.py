@@ -88,11 +88,11 @@ def hooks(request):
   
 def listMessages(request):
   conversations=Conversation.objects.all()
+  if conversation: 
+    conversation=conversations[0]
   if request.method=='GET':
-    return render (request,'social/mensajes.html',{'conversations':conversations})
-  
-  
-  
+    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation})
+    
 def viewMessage(request,id):
   if request.method=='POST':
     token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
