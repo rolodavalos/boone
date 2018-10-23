@@ -15,6 +15,7 @@ from social.models import Whabox, Conversation, Message
 
 #URL LIBRARY
 from urllib.request import Request
+from urllib.request import urlopen
 from urllib.parse import urlencode
 import json
 
