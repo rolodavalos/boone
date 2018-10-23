@@ -9,14 +9,10 @@ from django.http import HttpResponse
 
 
 #Custom imports
-from urllib.parse import (
-    ParseResult, SplitResult, _coerce_args, _splitnetloc, _splitparams, quote,
-    quote_plus, scheme_chars, unquote, unquote_plus,
-    urlencode as original_urlencode, uses_params,
-)
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
-from urllib.request import urlopen,urlencode
+from urllib.request import urlopen
+form urllib.parse import urlencode
 import json
 
 # Create your views here.
@@ -127,7 +123,7 @@ def viewMessage(request,id):
         message.save()
           
       #TO WHABOX
-      data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
+      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urlopen.urlopen(req)       
         
