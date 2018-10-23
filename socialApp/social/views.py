@@ -65,7 +65,7 @@ def hooks(request):
     conversation= Conversation.objects.filter(contact_uid=whabox.contact_uid)
     if conversation:
       message=Message()
-      message.conversation=conversations.first()
+      message.conversation=conversation
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
       message.save() 
