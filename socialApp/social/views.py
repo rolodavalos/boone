@@ -91,7 +91,7 @@ def viewMessage(request,id):
    conversation= Conversation.objects.get(contact_uid=id)
    messages= Message.objects.filter(conversation__pk=conversation.pk)
    if request.method=='GET':
-    return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages}) 
+    return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation}) 
     
   
   
