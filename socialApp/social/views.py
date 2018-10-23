@@ -16,7 +16,7 @@ from urllib.parse import (
 )
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
-from urllib.request import urlopen
+from urllib.request import urlopen,urlencode
 import json
 
 # Create your views here.
@@ -30,7 +30,7 @@ def sendMessage(request):
     if form.is_valid():
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
-      data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
+      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urlopen.urlopen(req) 
       data=json.load(response)
