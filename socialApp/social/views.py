@@ -12,7 +12,7 @@ from django.http import HttpResponse
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
 from urllib.request import urlopen
-form urllib.parse import urlencode
+from urllib.parse import urlencode
 import json
 
 # Create your views here.
