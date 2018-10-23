@@ -80,7 +80,6 @@ def hooks(request):
     return HttpResponse('pong')
   
 def listMessages(request):
-  
   conversations=Conversation.objects.all()
   if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations})
