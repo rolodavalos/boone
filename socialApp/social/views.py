@@ -62,10 +62,11 @@ def hooks(request):
     whabox.message_ack=request.POST.get("message[ack]")
     whabox.save()
     
-    conversation= Conversation.objects.filter(contact_uid=whabox.contact_uid)
-    if conversation:
+    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid)
+    if conversations:
+      conversation=conversations..first()
       message=Message()
-      message.conversation=conversation.first()
+      message.conversation=conversation
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
       message.save() 
