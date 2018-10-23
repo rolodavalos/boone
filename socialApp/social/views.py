@@ -90,6 +90,8 @@ def hooks(request):
   
 def listMessages(request):
   conversations=Conversation.objects.order_by('-modified')
+  conversation=None
+  messages=None
   if conversations: 
     conversation=conversations[0]
     messages=Message.objects.filter(conversation__pk=conversation.pk)
