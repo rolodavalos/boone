@@ -69,7 +69,7 @@ def hooks(request):
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
       message.save() 
-      conversation.update()    
+      conversation.save()    
     else:
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
