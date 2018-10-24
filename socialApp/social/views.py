@@ -118,16 +118,16 @@ def viewMessage(request):
       
           
   def displayMessage(request):
-  if request.method=='POST':
-    customer_uid=request.POST.get('customer_uid')
-    conversation= Conversation.objects.get(contact_uid=customer_uid)
-    if conversation:
-      messages= Message.objects.filter(conversation__pk=conversation.pk) 
-    else:
-      conversation=conversations.first()
-      messages= Message.objects.filter(conversation__pk=conversation.pk) 
-    #return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})             
-  return render (request,'social/messages.html',{'messages':messages})       
+    if request.method=='POST':
+      customer_uid=request.POST.get('customer_uid')
+      conversation= Conversation.objects.get(contact_uid=customer_uid)
+      if conversation:
+        messages= Message.objects.filter(conversation__pk=conversation.pk) 
+      else:
+        conversation=conversations.first()
+        messages= Message.objects.filter(conversation__pk=conversation.pk) 
+        #return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})             
+    return render (request,'social/messages.html',{'messages':messages})       
       
                   
               
