@@ -3,25 +3,6 @@
 
 {%block head_content%}
 <title>Consola Operador</title>
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script>
-function display_message(customer_uid){
-  var parametros = {
-    "customer_uid"=customer_uid,
-  };
-  $.ajax({
-    data: parametros,
-    url:"{%url 'view_message'%}",
-    type: 'post',
-    beforeSend: function() {
-       $("#frame").html("Procesando, espere un momento");
-    },
-    success: function(response){
-      $("#frame").html(response);
-    }
-  });
-}
-</script>
 {%endblock%}
 
 {%block container%}
@@ -157,6 +138,24 @@ $("#status-options ul li").click(function() {
   
   $("#status-options").removeClass("active");
 });
+</script>
+<script>
+function display_message(customer_uid){
+  var parametros = {
+    "customer_uid"=customer_uid,
+  };
+  $.ajax({
+    data: parametros,
+    url:"{%url 'view_message'%}",
+    type: 'post',
+    beforeSend: function() {
+       $("#frame").html("Procesando, espere un momento");
+    },
+    success: function(response){
+      $("#frame").html(response);
+    }
+  });
+}
 </script>
 
 {%endblock%}
