@@ -47,7 +47,7 @@
 					{%else%}
 						<li class="contact">	
 					{%endif%}
-						<a href="/mensajes/{{conver.contact_uid}}" id="link_conver" style="text-decoration: none;color: inherit;">	
+						<a href="#" id="link_conver" onClick="a_onClick()" style="text-decoration: none;color: inherit;">	
 							<div class="wrap">
 								<span class="contact-status online"></span>
 								<img src="{% static 'img/whatsapp.png' %}" alt="" />
@@ -148,10 +148,17 @@ $(window).on('keydown', function(e) {
 //# sourceURL=pen.js
 </script>
 <script>
-$("#formConversation").on("click", getUsers);
+	
+function a_onClick() {
+   alert('a_onClick');
+}	
+	
+	
+$("#link_conver").on("click", getUsers);
 
 function getUsers() {
-	
+alert("HOLA MUNDO")	
+/*	
 $.ajax({
     url: 'https://reqres.in/api/users',
     success: function(respuesta) {
@@ -170,6 +177,7 @@ $.ajax({
       console.log("No se ha podido obtener la información");
     }
   });
+  */
 }	
 	
 </script>	
