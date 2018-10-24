@@ -99,17 +99,17 @@ def listMessages(request):
   if request.method=='GET':
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
-def viewMessage(request,id):
+def viewMessage(request):
   if request.method=='POST':
+    customer_uid=request.POST.get('customer_uid')
     token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
     uid='595991732060'
     custom_uid= get_random_string(length=15)
     form=WhatForm(request.POST)
     if form.is_valid():
-      conversation= Conversation.objects.filter(contact_uid=id)
+      conversation= Conversation.objects.filter(contact_uid=customer_uid)
       to=form.cleaned_data.get("to")
-      text=form.cleaned_data.get("text")
-          
+      text=form.cleaned_data.get("text")  
       #Comprobe messages
       if conversation:
         message=Message()
@@ -144,7 +144,7 @@ def viewMessage(request,id):
     
   ###MOTRAR LOS MENSAJES CARAJO###
   conversations=Conversation.objects.order_by('-modified')
-  conversation= Conversation.objects.get(contact_uid=id)
+  conversation= Conversation.objects.get(contact_uid=customer_uid)
   messages= Message.objects.filter(conversation__pk=conversation.pk)   
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
       
