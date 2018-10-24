@@ -3,6 +3,7 @@
 
 {%block head_content%}
 <title>Consola Operador</title>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
 function display_message(customer_uid){
   var parametros = {
@@ -65,7 +66,7 @@ function display_message(customer_uid){
           {%else%}
             <li class="contact">  
           {%endif%}
-            <a href="#" id="link_conver" onClick="display_message({{conver.contact_uid}})" style="text-decoration: none;color: inherit;"> 
+            <a href="#" id="link_conver" onclick="display_message({{conver.contact_uid}})" style="text-decoration: none;color: inherit;"> 
               <div class="wrap">
                 <span class="contact-status online"></span>
                 <img src="{% static 'img/whatsapp.png' %}" alt="" />
