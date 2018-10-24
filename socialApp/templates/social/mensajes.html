@@ -2,8 +2,25 @@
 {% load static %}
 
 {%block head_content%}
-
 <title>Consola Operador</title>
+<script>
+function display_message(customer_uid){
+  var parametros = {
+    "customer_uid"=customer_uid,
+  };
+  $.ajax({
+    data: parametros,
+    url:"{%url 'view_message'%}",
+    type: 'post',
+    beforeSend: function() {
+       $("#messages_container").html("Procesando, espere un momento");
+    },
+    success: function(response){
+      $("#messages_container").html(response);
+    }
+  });
+}
+</script>
 {%endblock%}
 
 {%block container%}
@@ -79,7 +96,7 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <div class="messages">
+    <div class="messages" id="messages_container">
       <ul>
         {%for message in messages%}
           <li class="replies">
@@ -140,11 +157,5 @@ $("#status-options ul li").click(function() {
   $("#status-options").removeClass("active");
 });
 </script>
-
-<script>
-  $("#link_conver").click(function(){
-    alert("Hola Perro")
-    });
-</script>  
 
 {%endblock%}
