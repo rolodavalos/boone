@@ -42,6 +42,9 @@ class Conversation(models.Model):
 	estado= models.IntegerField(choices=STATUS)
 	tipo=models.IntegerField(choices=TYPE)
 	
+	def __str__(self):
+		return self.message_cuid+" "+self.contact_uid+" "+self.created+" "+self.modified+" "+self.estado+" "+self.tipo
+	
 class Message(models.Model):
 	STATUS = (
     	(0, ("NOT SEND")),
