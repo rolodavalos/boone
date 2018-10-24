@@ -106,7 +106,6 @@ def viewMessage(request):
     print("El customer UID es: "+customer_uid)
     conversation= Conversation.objects.get(contact_uid=customer_uid)
     if conversation:
-      print("EL ID DE LA CONVERSACION ES: "+conversation.id)
       messages= Message.objects.filter(conversation__pk=conversation.pk) 
     else:
       conversation=conversations.first()
