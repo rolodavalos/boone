@@ -103,8 +103,11 @@ def viewMessage(request):
   conversations=Conversation.objects.order_by('-modified')
   if request.method=='POST':
     customer_uid=request.POST.get('customer_uid')
+    print("El customer UID es: "+customer_uid)
     conversation= Conversation.objects.filter(contact_uid=customer_uid)
+    print(conversation)
     if conversation:
+      print(conversation)
       messages= Message.objects.filter(conversation__pk=conversation.pk) 
     else:
       conversation=conversations.first()
