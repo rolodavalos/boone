@@ -43,7 +43,7 @@ class Conversation(models.Model):
 	tipo=models.IntegerField(choices=TYPE)
 	
 	def __str__(self):
-		return str(self.pk)+" "+self.message_cuid+" "+self.contact_uid
+		return self.message_cuid+" "+self.contact_uid
 	
 class Message(models.Model):
 	STATUS = (
