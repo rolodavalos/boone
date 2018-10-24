@@ -100,52 +100,15 @@ def listMessages(request):
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
 def viewMessage(request):
+  conversations=Conversation.objects.order_by('-modified')
   if request.method=='POST':
     customer_uid=request.POST.get('customer_uid')
-    token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
-    uid='595991732060'
-    custom_uid= get_random_string(length=15)
-    form=WhatForm(request.POST)
-    if form.is_valid():
-      conversation= Conversation.objects.filter(contact_uid=customer_uid)
-      to=form.cleaned_data.get("to")
-      text=form.cleaned_data.get("text")  
-      #Comprobe messages
-      if conversation:
-        message=Message()
-        message.conversation=conversation
-        message.message_text=text
-        message.estado=3
-        message.save() 
-      else:
-        #Crear nueva conversacion y adjuntar el mensaje
-        conversation=Conversation()
-        conversation.message_cuid=custom_uid
-        conversation.contact_uid=to
-        conversation.estado=1
-        conversation.tipo=2
-        conversation.save()
-      
-        #Guardar mensaje
-        message=Message()
-        message.conversation=conversation
-        message.message_text=whabox.message_text
-        message.estado=whabox.message_ack
-        message.save()
-          
-      #TO WHABOX
-      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text})
-      req = Request('https://www.waboxapp.com/api/send/chat', data.encode()) 
-      response= urlopen(req) 
-      data=json.load(response)
-      message=data['success']
-      print(message)
-      
-    
-  ###MOTRAR LOS MENSAJES CARAJO###
-  conversations=Conversation.objects.order_by('-modified')
-  conversation= Conversation.objects.get(contact_uid=customer_uid)
-  messages= Message.objects.filter(conversation__pk=conversation.pk)   
+    conversation= Conversation.objects.filter(contact_uid=customer_uid)
+    messages= Message.objects.filter(conversation__pk=conversation.pk) 
+    #return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})             
+  else:
+    conversation= conversations.first()
+    messages= Message.objects.filter(conversation__pk=conversation.pk)    
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
       
           
