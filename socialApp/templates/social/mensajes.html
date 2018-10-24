@@ -114,9 +114,9 @@ function display_message(customer_uid){
     data: parametros,
     url:"{%url 'display_message'%}",
     type: 'post',
-    beforeSend: function() {
-       $("#messages_container").html("Procesando, espere un momento");
-    },
+ //   beforeSend: function() {
+ //      $("#messages_container").html("Procesando, espere un momento");
+ //   },
     success: function(response){
       $("#messages_container").html(response);
     }
