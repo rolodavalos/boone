@@ -112,13 +112,13 @@ function display_message(customer_uid){
   };
   $.ajax({
     data: parametros,
-    url:"{%url 'view_message'%}",
+    url:"{%url 'display_message'%}",
     type: 'post',
     beforeSend: function() {
-       $("#frame").html("Procesando, espere un momento");
+       $("#messages_container").html("Procesando, espere un momento");
     },
     success: function(response){
-      $("#frame").html(response);
+      $("#messages_container").html(response);
     }
   });
 }
