@@ -6,6 +6,7 @@
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
 function display_message(customer_uid){
+  alert("Funciona?");
   var parametros = {
     "customer_uid"=customer_uid,
   };
@@ -14,10 +15,10 @@ function display_message(customer_uid){
     url:"{%url 'view_message'%}",
     type: 'post',
     beforeSend: function() {
-       $("#messages_container").html("Procesando, espere un momento");
+       $("#frame").html("Procesando, espere un momento");
     },
     success: function(response){
-      $("#messages_container").html(response);
+      $("#frame").html(response);
     }
   });
 }
