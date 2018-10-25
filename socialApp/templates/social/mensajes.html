@@ -113,9 +113,6 @@ function display_message(conver_pk){
     data: parametros,
     url:"{%url 'show_contact'%}",
     type: 'post',
-    beforeSend: function() {
-       $("#contact-profile").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
-    },
     success: function(response){
       $("#contact-profile").html(response);
     }
