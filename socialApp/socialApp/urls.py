@@ -26,5 +26,6 @@ urlpatterns = [
     path('social/', social_views.sendMessage,name='send_message'),
     path('hooks',social_views.hooks,name='hooks'),
     path('contact/',social_views.showContact,name='show_contact'),
-    path('conversatinos/',social_views.listConversations,name='list_conversation'),
+    path('conversations/',social_views.listConversations,name='list_conversation'),
+    
 ]
