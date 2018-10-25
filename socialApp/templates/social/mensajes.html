@@ -8,40 +8,7 @@
 <!-- Custom fonts for this template-->
 <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
 <script src="{% static 'vendor/jquery/jquery.js'%}"></script>
-<script>
-   function refresh(){
-   $.ajax({
-    data: parametros,
-    url:"{%url 'list_conversations'%}",
-    type: 'post',
-    success: function(response){
-      $("#contacts").html(response);
-      setTimeout(function(){
-                refresh();
-               }, 10000); 
-    },
-    error: function(jqXHR, exception) {
-            if (jqXHR.status === 0) {
-                alert('Not connect.\n Verify Network.');
-            } else if (jqXHR.status == 404) {
-                alert('Requested page not found. [404]');
-            } else if (jqXHR.status == 500) {
-                alert('Internal Server Error [500].');
-            } else if (exception === 'parsererror') {
-                alert('Requested JSON parse failed.');
-            } else if (exception === 'timeout') {
-                alert('Time out error.');
-            } else if (exception === 'abort') {
-                alert('Ajax request aborted.');
-            } else {
-                alert('Uncaught Error.\n' + jqXHR.responseText);
-            }
-        }     
-  }); 
-  }    
-      
-   
-</script>
+
 {%endblock%}
 
 {%block container%}
@@ -229,9 +196,36 @@ $("#contacts ul li").click(function(){
   $(this).addClass("active");
 });  
    
-  
-       
-  
+function refresh(){
+   $.ajax({
+    data: parametros,
+    url:"{%url 'list_conversations'%}",
+    type: 'post',
+    success: function(response){
+      $("#contacts").html(response);
+      setTimeout(function(){
+                refresh();
+               }, 10000); 
+    },
+    error: function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                alert('Requested page not found. [404]');
+            } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+            } else if (exception === 'parsererror') {
+                alert('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                alert('Time out error.');
+            } else if (exception === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error.\n' + jqXHR.responseText);
+            }
+        }     
+  }); 
+  }      
 </script>
 
 
