@@ -50,17 +50,18 @@
             {%endif%}
           {%else%}
             <li class="contact">  
-          {%endif%}
-            <a href="#" id="link_conver" onclick="display_message({{conver.pk}})" style="text-decoration: none;color: inherit;"> 
+          {%endif%} 
               <div class="wrap">
-                <span class="contact-status online"></span>
-                <img src="{% static 'img/whatsapp.png' %}" alt="" />
-                <div class="meta">
-                  <p class="name">{{conver.contact_uid}}</p>
-                  <p class="preview">Disponible.</p>
-                </div>
-              </div>
-            </a>  
+                <a href="#" id="link_conver" onclick="display_message({{conver.pk}})" style="text-decoration: none;color: inherit;">
+                  <span class="contact-status online"></span>
+                  <img src="{% static 'img/whatsapp.png' %}" alt="" />
+                  <div class="meta">
+                    <p class="name">{{conver.contact_uid}}</p>
+                    <p class="preview">Disponible.</p>
+                  </div>
+                </a>  
+             </div>
+           
           </li>
         {%endfor%}
       </ul>
