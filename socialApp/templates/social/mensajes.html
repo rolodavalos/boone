@@ -83,8 +83,9 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <div class="messages" id="messages_container" w3-include-html="messajes.html">
+    <div class="messages" id="messages_container">
     </div>
+    
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="/mensajes/{{conversation.id}}" id="formConversation">
@@ -154,8 +155,11 @@ $("#contacts ul li").click(function(){
   $("#contacts ul li").removeClass("active");
   $(this).addClass("active");
 });  
-    
-  
+   
+  $(function(){
+   $("#messages_container").load("messajes.html");
+  });
+       
   
 </script>
 
