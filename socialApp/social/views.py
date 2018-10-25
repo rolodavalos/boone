@@ -129,6 +129,7 @@ def displayMessage(request):
   return render (request,'social/messajes.html',{'messages':messages}) 
 
 def showContact(request):
+  print("HOLA MUNDO")
   if request.method=='POST':
     conversation_id=request.POST.get('conversation_id')
     print(conversation_id)
