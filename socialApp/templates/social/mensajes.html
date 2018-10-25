@@ -110,38 +110,12 @@
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
-  setInterval(refresh(), 2000);
-  function refresh(){
-    $.ajax({
-    data: parametros,
-    url:"{%url 'list_conversations'%}",
-    type: 'post',
-    success: function(response){
-      $("#contacts").html(response);
-      setTimeout(function(){
-                refresh();
-               }, 10000); 
-    },
-    error: function(jqXHR, exception) {
-            if (jqXHR.status === 0) {
-                alert('Not connect.\n Verify Network.');
-            } else if (jqXHR.status == 404) {
-                alert('Requested page not found. [404]');
-            } else if (jqXHR.status == 500) {
-                alert('Internal Server Error [500].');
-            } else if (exception === 'parsererror') {
-                alert('Requested JSON parse failed.');
-            } else if (exception === 'timeout') {
-                alert('Time out error.');
-            } else if (exception === 'abort') {
-                alert('Ajax request aborted.');
-            } else {
-                alert('Uncaught Error.\n' + jqXHR.responseText);
-            }
-        }     
-  }); 
- }
-</script>
+    function autoRefresh_div() {
+        $("#contacts").load("{% url 'list_conversations'%}");
+    }
+    setInterval('autoRefresh_div()', 5000);
+</script> 
+
 <script>                                                                          
 function display_message(conver_pk){
   var parametros = {
