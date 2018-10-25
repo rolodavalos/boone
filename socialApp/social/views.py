@@ -118,8 +118,8 @@ def viewMessage(request):
       
 def displayMessage(request):
   if request.method=='POST':
-    customer_uid=request.POST.get('customer_uid')
-    conversation= Conversation.objects.get(contact_uid=customer_uid)
+    conversation_id=request.POST.get('conversation_id')
+    conversation= Conversation.objects.get(pk=conversation_id)
     if conversation:
       messages= Message.objects.filter(conversation__pk=conversation.pk) 
     else:
