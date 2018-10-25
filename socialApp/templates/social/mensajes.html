@@ -88,7 +88,7 @@
         {%for message in messages%}
           <li class="replies">
             <!--img src="http://www.baytekgames.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg" alt="" /-->
-            <p><span>{{message.message_text}}</span><blockquote>{{message.created|date:'d-m-Y H:i'}}</blockquote></p>
+            <p><span>{{message.message_text}}<footer>{{message.created|date:'d-m-Y H:i'}}</footer></span></p>
           </li>
         {%endfor%}
         <!--li class="replies">
