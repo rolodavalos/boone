@@ -44,22 +44,22 @@
         {%for conver in conversations%}
           {%if conversation is not None%}
             {%if conver.contact_uid == conversation.contact_uid %}
-              <li class="contact active"> 
+              <li class="contact active" onclick="display_message({{conver.pk}})> 
             {%else%}
-              <li class="contact">  
+              <li class="contact" onclick="display_message({{conver.pk}})>  
             {%endif%}
           {%else%}
-            <li class="contact">  
+            <li class="contact" onclick="display_message({{conver.pk}})>  
           {%endif%} 
               <div class="wrap">
-                <a href="#" id="link_conver" onclick="display_message({{conver.pk}})" style="text-decoration: none;color: inherit;">
+              
                   <span class="contact-status online"></span>
                   <img src="{% static 'img/whatsapp.png' %}" alt="" />
                   <div class="meta">
                     <p class="name">{{conver.contact_uid}}</p>
                     <p class="preview">Disponible.</p>
                   </div>
-                </a>  
+               
              </div>
            
           </li>
@@ -110,7 +110,7 @@
 </div>
 <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script>
+<script>                                                                          
 function display_message(conver_pk){
   var parametros = {
     "conversation_id":conver_pk
