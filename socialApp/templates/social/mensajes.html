@@ -115,7 +115,7 @@ function display_message(conver_pk){
     url:"{%url 'display_message'%}",
     type: 'post',
     beforeSend: function() {
-       $("#messages_container").html("<div class='container-fluid'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+       $("#messages_container").html("<div class='container-fluid text-center'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
     success: function(response){
       $("#messages_container").html(response);
