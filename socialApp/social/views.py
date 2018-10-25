@@ -137,7 +137,7 @@ def showContact(request):
     return render (request,'social/contact_profile.html',{'conversation':conversation})  
   
 def listConversations(request):
-  conversations=COnversation.objects.order_by('-modified')
+  conversations=Conversation.objects.order_by('-modified')
   return render (request,'social/conversations.html',{'conversations':conversations})
   
       
