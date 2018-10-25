@@ -131,7 +131,10 @@ def displayMessage(request):
 def showContact(request):
   if request.method=='POST':
     conversation_id=request.POST.get('conversation_id')
+    print(conversation_id)
     conversation= Conversation.objects.get(pk=conversation_id)
+    if conversation:
+      print(conversation.contact_uid)
   return render (request,'social/contact_profile.html',{'conversation':conversation})  
       
                   
