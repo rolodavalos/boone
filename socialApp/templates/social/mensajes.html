@@ -114,7 +114,7 @@ function display_message(conver_pk){
     url:"{%url 'show_contact'%}",
     type: 'post',
     success: function(response){
-      alert("response");
+      alert(response);
       $("#contact-profile").html(response);
     },
     error: function(jqXHR, exception) {
