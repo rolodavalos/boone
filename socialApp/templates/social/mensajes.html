@@ -10,7 +10,7 @@
 <script src="{% static 'vendor/jquery/jquery.js'%}"></script>
 <script>
    $(function(){
-   $("#messages_container").load("messajes.html");
+   $("#messages_container").load("{%url 'display_message'%}");
    });
 </script>
 {%endblock%}
