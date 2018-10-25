@@ -129,14 +129,12 @@ def displayMessage(request):
   return render (request,'social/messajes.html',{'messages':messages}) 
 
 def showContact(request):
-  print("HOLA MUNDO")
   if request.method=='POST':
     conversation_id=request.POST.get('conversation_id')
-    print(conversation_id)
     conversation= Conversation.objects.get(pk=conversation_id)
     if conversation:
       print(conversation.contact_uid)
-  return render (request,'social/contact_profile.html',{'conversation':conversation})  
+    return render (request,'social/contact_profile.html',{'conversation':conversation})  
       
                   
               
