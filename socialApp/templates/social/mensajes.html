@@ -147,7 +147,7 @@ $("#status-options ul li").click(function() {
   $("#status-offline").removeClass("active");
   $(this).addClass("active");
   
-  if($("#status-online").hasClass("active")) {
+    if($("#status-online").hasClass("active")) {
     $("#profile-img").addClass("online");
   } else if ($("#status-away").hasClass("active")) {
     $("#profile-img").addClass("away");
@@ -159,6 +159,12 @@ $("#status-options ul li").click(function() {
     $("#profile-img").removeClass();
   };
   
+$("#wrap a").click(function(){
+  $("#contacts ul li").removeClass();
+  $(this.addClass("contact active"))
+});  
+  
+   
   $("#status-options").removeClass("active");
 });
 </script>
