@@ -94,7 +94,7 @@
     
     <script>
       function autoRefreshMessages() {
-      $("#messages_container").load("{%url 'display_conversations' id_conversation={{conversation.id}} %}");
+      $("#messages_container").load("{%url 'display_conversations' id=conversation.id %}");
       }
       setInterval(autoRefreshMessages, 5000); // every 5 seconds
       autoRefreshMessages(); // on load
