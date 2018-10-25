@@ -46,6 +46,7 @@
     setInterval(autoRefresh_div, 5000); // every 5 seconds
     autoRefresh_div(); // on load
     </script>  
+    
     <div id="contacts">
       <ul>
         {%for conver in conversations%}
@@ -90,6 +91,15 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
+    
+    <script>
+      function autoRefreshMessages() {
+      $("#messages_container").load("{%url 'display_conversations' id_conversation={{conversation.id}} %}");
+      }
+      setInterval(autoRefreshMessages, 5000); // every 5 seconds
+      autoRefreshMessages(); // on load
+    </script>  
+   
     <div class="messages" id="messages_container">
      <ul>
         {%for message in messages%}
