@@ -2,7 +2,7 @@
         {%for message in messages%}
           <li class="replies">
                   
-                  <p>{{message.message_text}}<span class="badge">{{message.created|date:'d-m-Y H:i'}}</span></p>
+                  <p>{{message.message_text}}<span class="tex-mute">{{message.created|date:'d-m-Y H:i'}}</span></p>
           </li>
         {%endfor%}
         <!--li class="replies">
