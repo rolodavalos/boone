@@ -9,13 +9,16 @@
 <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
 <script src="{% static 'vendor/jquery/jquery.js'%}"></script>
 <script>
-   $(document).ready(function(){
+   function refresh(){
    $.ajax({
     data: parametros,
     url:"{%url 'list_conversations'%}",
     type: 'post',
     success: function(response){
       $("#contacts").html(response);
+      setTimeout(function(){
+                refresh();
+               }, 10000); 
     },
     error: function(jqXHR, exception) {
             if (jqXHR.status === 0) {
@@ -33,9 +36,10 @@
             } else {
                 alert('Uncaught Error.\n' + jqXHR.responseText);
             }
-        }
+        }     
   }); 
-});
+  }    
+      
    
 </script>
 {%endblock%}
