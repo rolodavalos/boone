@@ -118,7 +118,19 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <div class="messages" id="messages_container"></div> 
+    <div class="messages" id="messages_container">
+     <ul>
+        {%for message in messages%}
+          <li class="replies">     
+             <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
+          </li>
+        {%endfor%}
+        <!--li class="replies">
+          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+          <p>When you're backed against the wall, break the god damn thing down.</p>
+        </li-->
+     </ul>
+</div> 
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="/mensajes/{{conversation.id}}" id="formConversation">
