@@ -98,7 +98,7 @@
       }
       setInterval(autoRefreshMessages, 5000); // every 5 seconds
       autoRefreshMessages(); // on load
-      $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+      $(".messages").animate({scrollTop: document.body.scrollHeight},"fast");
     </script>  
    
     <div class="messages" id="messages_container">
