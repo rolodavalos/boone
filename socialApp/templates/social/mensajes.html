@@ -119,8 +119,7 @@ function display_message(conver_pk){
       $("#messages_container").html(response);
     }
   });
-   
-   $.ajax({
+  $.ajax({
     data: parametros,
     url:"{%url 'show_contact'%}",
     type: 'post',
