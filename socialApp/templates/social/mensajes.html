@@ -108,6 +108,19 @@ function display_message(conver_pk){
   var parametros = {
     "conversation_id":conver_pk
   };
+   
+   $.ajax({
+    data: parametros,
+    url:"{%url 'show_contact'%}",
+    type: 'post',
+    beforeSend: function() {
+       $("#contact-profile").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+    },
+    success: function(response){
+      $("#contact-profile").html(response);
+    }
+  }); 
+   
   $.ajax({
     data: parametros,
     url:"{%url 'display_message'%}",
@@ -119,17 +132,7 @@ function display_message(conver_pk){
       $("#messages_container").html(response);
     }
   });
-  $.ajax({
-    data: parametros,
-    url:"{%url 'show_contact'%}",
-    type: 'post',
-    beforeSend: function() {
-       $("#contact-profile").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
-    },
-    success: function(response){
-      $("#contact-profile").html(response);
-    }
-  });
+ 
 }
 </script>
 <script>
