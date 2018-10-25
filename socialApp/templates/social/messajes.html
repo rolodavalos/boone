@@ -1,7 +1,8 @@
 <ul>
         {%for message in messages%}
           <li class="replies">
-                  <p><span>{{message.message_text}}<small>{{message.created|date:'d-m-Y H:i'}}</small></span></p>
+                  <small>{{message.created|date:'d-m-Y H:i'}}</small>
+                  <p>{{message.message_text}}</p>
           </li>
         {%endfor%}
         <!--li class="replies">
