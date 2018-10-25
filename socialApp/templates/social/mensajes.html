@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 <!-- Custom fonts for this template-->
 <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+<script src="{% static 'vendor/jquery/jquery.js'%}"></script>
+<script>
+   $(function(){
+   $("#messages_container").load("messajes.html");
+   });
+</script>
 {%endblock%}
 
 {%block container%}
@@ -83,9 +89,7 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <div class="messages" id="messages_container">
-    </div>
-    
+    <div class="messages" id="messages_container"></div> 
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="/mensajes/{{conversation.id}}" id="formConversation">
@@ -156,9 +160,7 @@ $("#contacts ul li").click(function(){
   $(this).addClass("active");
 });  
    
-  $(function(){
-   $("#messages_container").load("messajes.html");
-  });
+  
        
   
 </script>
