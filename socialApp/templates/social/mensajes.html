@@ -111,7 +111,7 @@
 <script>
 function autoRefresh_div() {
     $("#contacts").load("{%url 'list_conversations'%}", function() {
-        setTimeout(autoRefresh_div, 5000);
+        setTimeout(autoRefresh_div(), 5000);
     });
 }
 autoRefresh_div();
