@@ -4,9 +4,9 @@
 {%block head_content%}
 <title>Consola Operador</title>
 <!-- Bootstrap core CSS-->
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-    <!-- Custom fonts for this template-->
-    <link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!-- Custom fonts for this template-->
+<link rel="stylesheet" type="text/css" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
 {%endblock%}
 
 {%block container%}
@@ -119,7 +119,7 @@ function display_message(conver_pk){
     url:"{%url 'display_message'%}",
     type: 'post',
     beforeSend: function() {
-       $("#messages_container").html("<div class='container-fluid col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+       $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
     success: function(response){
       $("#messages_container").html(response);
