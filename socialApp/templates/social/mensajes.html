@@ -44,12 +44,12 @@
         {%for conver in conversations%}
           {%if conversation is not None%}
             {%if conver.contact_uid == conversation.contact_uid %}
-              <li class="contact active" onclick="display_message({{conver.pk}})> 
+              <li class="contact active" onclick="display_message({{conver.pk}})"> 
             {%else%}
-              <li class="contact" onclick="display_message({{conver.pk}})>  
+              <li class="contact" onclick="display_message({{conver.pk}})">  
             {%endif%}
           {%else%}
-            <li class="contact" onclick="display_message({{conver.pk}})>  
+            <li class="contact" onclick="display_message({{conver.pk}})">  
           {%endif%} 
               <div class="wrap">
               
