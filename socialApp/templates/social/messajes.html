@@ -1,3 +1,13 @@
+ <script>
+      function autoRefreshMessages() {
+      $("#messages_container").load("{%url 'display_conversations' id=conversation.id %}");
+      }
+      setInterval(autoRefreshMessages, 5000); // every 5 seconds
+      autoRefreshMessages(); // on load
+      $(".messages").animate({scrollTop: document.body.scrollHeight},"fast");
+    </script>  
+
+<div class="messages" id="messages_container">
 <ul>
         {%for message in messages%}
           <li class="replies">
@@ -9,6 +19,7 @@
           <p>When you're backed against the wall, break the god damn thing down.</p>
         </li-->
 </ul>
+</div>        
 <script>
         $(".messages").animate({scrollTop: document.body.scrollHeight},"fast");
         //$(".messages").animate({ scrollTop: $(document).height() }, "fast");
