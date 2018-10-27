@@ -100,6 +100,7 @@ def listMessages(request):
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
 def viewMessage(request):
+  conversations=None
   conversation=None
   messages=None
   conversations=Conversation.objects.order_by('-modified')
