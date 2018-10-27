@@ -104,10 +104,7 @@ def viewMessage(request):
   if request.method=='POST':
     conversation= Conversation.objects.get(contact_uid=request.POST.get('customer_uid'))
     if conversation:
-      messages= Message.objects.filter(conversation__pk=conversation.pk) 
-  else:
-    conversation= conversations.first()
-    messages= Message.objects.filter(conversation__pk=conversation.pk)    
+      messages= Message.objects.filter(conversation__pk=conversation.pk)    
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
       
 def displayMessage(request):
