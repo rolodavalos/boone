@@ -92,7 +92,11 @@
       </div>
     </div>
     <script>
-     
+     function autoRefreshMessages() {
+      $("#messages_container").load("{%url 'display_message'%}");
+      }
+      setInterval(autoRefreshMessages, 10000); // every 5 seconds
+      autoRefreshMessages(); //onload
     </script>  
 
     <div id="messages_container">
