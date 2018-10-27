@@ -67,9 +67,7 @@
                     <p class="name">{{conver.contact_uid}}</p>
                     <p class="preview">Disponible.</p>
                   </div>
-               
              </div>
-           
           </li>
         {%endfor%}
       </ul>
@@ -91,8 +89,18 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <div id="lucho">
+    <script>
+      function autoRefreshMessages() {
+      $("#messages_container").load("{%url 'display_conversations' id=conversation.id %}");
+      }
+      setInterval(autoRefreshMessages, 10000); // every 5 seconds
+      autoRefreshMessages(); // on load
+      $(".messages").animate({scrollTop: document.body.scrollHeight},"fast");
+    </script>  
+
+    <div id="messages_container">
     </div>  
+    
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="/mensajes/{{conversation.id}}" id="formConversation">
@@ -134,8 +142,7 @@ function display_message(conver_pk){
                 alert('Uncaught Error.\n' + jqXHR.responseText);
             }
         }
-  }); 
-   
+  });
   $.ajax({
     data: parametros,
     url:"{%url 'display_message'%}",
@@ -146,8 +153,7 @@ function display_message(conver_pk){
     success: function(response){
       $("#lucho").html(response);
     }
-  });
- 
+  }); 
 }
 </script>
 <script>
