@@ -81,36 +81,7 @@
         <i class="fa fa-instagram" aria-hidden="true"></i-->
       </div>
     </div>
-    <script>
-     function autoRefreshMessages() {
-        var parametros = {
-         "conversation_id":{{conversation.id}}
-        };
-        $.ajax({
-          data: parametros,
-          url:"{%url 'show_contact'%}",
-          type: 'post',
-          success: function(response){
-             $("#contact-profile").html(response);
-          }  
-        });
-  
-        $.ajax({
-          data: parametros,
-          url:"{%url 'display_message'%}",
-          type: 'post',
-          beforeSend: function() {
-            $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
-          },
-          success: function(response){
-            $("#messages_container").html(response);
-         }
-        }); 
-      }     
-      setInterval(autoRefreshMessages, 2000); // every 5 seconds
-      autoRefreshMessages(); //onload
-    </script>  
-
+   
     <div id="messages_container">
     </div>  
     
