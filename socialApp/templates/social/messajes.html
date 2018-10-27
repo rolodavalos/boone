@@ -1,5 +1,5 @@
     
-<div id="messages_container">        
+<div class="messages">        
 <ul>
         {%for message in messages%}
           <li class="replies">
@@ -10,18 +10,5 @@
           <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
           <p>When you're backed against the wall, break the god damn thing down.</p>
         </li-->
-</ul>   
- <script>
-        var parametros = {
-         "conversation_id":{{conversation.id}}
-        };
-        $.ajax({
-          data: parametros,
-          url:"{%url 'display_message'%}",
-          type: 'post',
-          success: function(response){
-            $("#messages_container").html(response);
-         }
-        }); 
-</script>   
+</ul>     
 </div>    
