@@ -100,6 +100,8 @@ def listMessages(request):
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
 def viewMessage(request):
+  conversation=None
+  messages=None
   conversations=Conversation.objects.order_by('-modified')
   if request.method=='POST':
     conversation= Conversation.objects.get(contact_uid=request.POST.get('customer_uid'))
