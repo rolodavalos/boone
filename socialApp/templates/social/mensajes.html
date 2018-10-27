@@ -38,17 +38,7 @@
       <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
       <input type="text" placeholder="Buscar contactos..." />
     </div>
-    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-    <script>
-      /*
-    function autoRefresh_div() {
-    $("#contacts").load("{%url 'list_conversations'%}");
-    }
-    setInterval(autoRefresh_div, 10000); // every 5 seconds
-    autoRefresh_div(); // on load
-    */
-    </script>  
-    
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script> 
     <div id="contacts">
       <ul>
         {%for conver in conversations%}
@@ -117,7 +107,7 @@
          }
         }); 
       }     
-      setInterval(autoRefreshMessages, 10000); // every 5 seconds
+      setInterval(autoRefreshMessages, 2000); // every 5 seconds
       autoRefreshMessages(); //onload
     </script>  
 
