@@ -43,7 +43,7 @@
     function autoRefresh_div() {
     $("#contacts").load("{%url 'list_conversations'%}");
     }
-    setInterval(autoRefresh_div, 5000); // every 5 seconds
+    setInterval(autoRefresh_div, 10000); // every 5 seconds
     autoRefresh_div(); // on load
     </script>  
     
@@ -148,10 +148,10 @@ function display_message(conver_pk){
     url:"{%url 'display_message'%}",
     type: 'post',
     beforeSend: function() {
-       $("#lucho").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+       $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
     success: function(response){
-      $("#lucho").html(response);
+      $("#messages_container").html(response);
     }
   }); 
 }
