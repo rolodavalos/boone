@@ -52,7 +52,7 @@ class Conversation(models.Model):
 	estado= models.IntegerField(choices=STATUS)
 	red=models.IntegerField(choices=RED)
 	direction= models.IntegerField(choices=DIR)
-	tipo=ForeignKey(Tipo,on_delete=models.CASCADE,null=True)
+	tipo=models.ForeignKey(Tipo,on_delete=models.CASCADE,null=True)
 	
 	def __str__(self):
 		return self.message_cuid+" "+self.contact_uid
