@@ -78,6 +78,7 @@ def hooks(request):
       conversation.contact_uid=whabox.contact_uid
       conversation.estado=1
       conversation.tipo=2
+      conversation.dir=1
       conversation.save()
       
       #Guardar mensaje
