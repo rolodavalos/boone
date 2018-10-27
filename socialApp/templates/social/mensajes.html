@@ -82,7 +82,7 @@
       </div>
     </div>
     <script>
-     function autoRefreshMessages({{conversation.pk}}) {
+     function autoRefreshMessages({{conversation.id}}) {
         var parametros = {
          "conversation_id":conver_pk
         };
@@ -108,7 +108,7 @@
         }); 
       }     
       setInterval(autoRefreshMessages, 2000); // every 5 seconds
-      autoRefreshMessages(); //onload
+      autoRefreshMessages({{conversation.id}}); //onload
     </script>  
 
     <div id="messages_container">
