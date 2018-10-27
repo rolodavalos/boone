@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
   #  path('mensajes/',social_views.listMessages,name='list_messages'),
     path('mensajes/',social_views.viewMessage,name='view_message'), 
-   # path('messages/',social_views.displayMessage,name='display_message'),
+    path('messages/',social_views.displayMessage,name='display_message'),
   #  path('social/', social_views.sendMessage,name='send_message'),
     path('hooks',social_views.hooks,name='hooks'),
     path('contact/',social_views.showContact,name='show_contact'),
