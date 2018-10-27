@@ -20,7 +20,13 @@ class Whabox(models.Model):
 	
 	def __str__(self):
 		return self.event+" "+self.token+" "+self.contact_uid+" "+self.contact_name+" "+self.contact_type+" "+self.contact_name+" "+self.message_dtm+" "+self.message_uid+" "+self.message_cuid+" "+self.message_dir+" "+self.message_type+" "+self.message_text+" "+self.message_ack
-	
+
+class Tipo(models.Model):
+	title=models.CharField(max_length=50)
+	description=models.CharField(max_length=255)
+	user=models.ForeignKey(User,on_delete=models.CASCADE)
+	created=models.DateTimeField(auto_now_add=True)
+	modified=models.DateTimeField(auto_now=True)
 	
 class Conversation(models.Model):
 	STATUS = (
@@ -28,7 +34,7 @@ class Conversation(models.Model):
     	(2, ("process")),
     	(3, ("close"))
 	)
-	TYPE = (
+	RED = (
     	(1, ("TW")),
     	(2, ("WA")),
     	(3, ("FB")),
@@ -44,8 +50,9 @@ class Conversation(models.Model):
 	modified=models.DateTimeField(auto_now=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	estado= models.IntegerField(choices=STATUS)
-	tipo=models.IntegerField(choices=TYPE)
-	direccion= models.IntegerField(choices=DIR)
+	red=models.IntegerField(choices=TYPE)
+	direction= models.IntegerField(choices=DIR)
+	tipo=ForeignKey(Tipo,on_delete=models.CASCADE,null=True)
 	
 	def __str__(self):
 		return self.message_cuid+" "+self.contact_uid
