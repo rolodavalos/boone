@@ -4,15 +4,7 @@
         var parametros = {
          "conversation_id":{{conversation.id}}
         };
-        $.ajax({
-          data: parametros,
-          url:"{%url 'show_contact'%}",
-          type: 'post',
-          success: function(response){
-             $("#contact-profile").html(response);
-          }  
-        });
-  
+     
         $.ajax({
           data: parametros,
           url:"{%url 'display_message'%}",
