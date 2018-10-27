@@ -1,3 +1,16 @@
+    
+        
+<ul>
+        {%for message in messages%}
+          <li class="replies">
+                  <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
+          </li>
+        {%endfor%}
+        <!--li class="replies">
+          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+          <p>When you're backed against the wall, break the god damn thing down.</p>
+        </li-->
+</ul>
 {% load static %}
  <script>
      function autoRefreshMessages() {
@@ -15,18 +28,6 @@
         }); 
       }     
       setInterval(autoRefreshMessages, 10000); // every 5 seconds
-      //autoRefreshMessages(); //onload
-</script>       
-        
-<ul>
-        {%for message in messages%}
-          <li class="replies">
-                  <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
-          </li>
-        {%endfor%}
-        <!--li class="replies">
-          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-          <p>When you're backed against the wall, break the god damn thing down.</p>
-        </li-->
-</ul>
+      autoRefreshMessages(); //onload
+</script>   
     
