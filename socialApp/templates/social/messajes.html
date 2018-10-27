@@ -10,14 +10,11 @@
           <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
           <p>When you're backed against the wall, break the god damn thing down.</p>
         </li-->
-</ul>
-{% load static %}
+</ul>   
  <script>
-     function autoRefreshMessages() {
         var parametros = {
          "conversation_id":{{conversation.id}}
         };
-     
         $.ajax({
           data: parametros,
           url:"{%url 'display_message'%}",
@@ -26,8 +23,5 @@
             $("#messages_container").html(response);
          }
         }); 
-      }     
-      setInterval(autoRefreshMessages, 10000); // every 5 seconds
-      //autoRefreshMessages(); //onload
 </script>   
 </div>    
