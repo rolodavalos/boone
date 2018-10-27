@@ -1,4 +1,24 @@
+{% load static %}
 <div class="messages" id="messages_container">
+ <script>
+     function autoRefreshMessages() {
+        var parametros = {
+         "conversation_id":{{conversation.id}}
+        };
+     
+        $.ajax({
+          data: parametros,
+          url:"{%url 'display_message'%}",
+          type: 'post',
+          success: function(response){
+            $("#messages_container").html(response);
+         }
+        }); 
+      }     
+      setInterval(autoRefreshMessages, 10000); // every 5 seconds
+      //autoRefreshMessages(); //onload
+</script>       
+        
 <ul>
         {%for message in messages%}
           <li class="replies">
