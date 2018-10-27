@@ -118,6 +118,8 @@ function display_message(conver_pk){
   var parametros = {
     "conversation_id":conver_pk
   };
+  
+  //Actualizar el panel izquierdo
    $.ajax({
     data: parametros,
     url:"{%url 'show_contact'%}",
@@ -125,23 +127,8 @@ function display_message(conver_pk){
     success: function(response){
       $("#contact-profile").html(response);
     },
-    error: function(jqXHR, exception) {
-            if (jqXHR.status === 0) {
-                alert('Not connect.\n Verify Network.');
-            } else if (jqXHR.status == 404) {
-                alert('Requested page not found. [404]');
-            } else if (jqXHR.status == 500) {
-                alert('Internal Server Error [500].');
-            } else if (exception === 'parsererror') {
-                alert('Requested JSON parse failed.');
-            } else if (exception === 'timeout') {
-                alert('Time out error.');
-            } else if (exception === 'abort') {
-                alert('Ajax request aborted.');
-            } else {
-                alert('Uncaught Error.\n' + jqXHR.responseText);
-            }
-        }
+  
+  //Actualizar el panel del mensaje   
   });
   $.ajax({
     data: parametros,
