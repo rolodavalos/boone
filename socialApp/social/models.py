@@ -32,11 +32,11 @@ class Conversation(models.Model):
     	(1, ("TW")),
     	(2, ("WA")),
     	(3, ("FB")),
-	(4, ("IG")),
+	(4, ("IG"))
 	)
 	DIR = (
     	(1, ("I")),
-    	(2, ("O")),
+    	(2, ("O"))
 	)
 	message_cuid=models.CharField(max_length=255)
 	contact_uid=models.CharField(max_length=255)
@@ -45,7 +45,7 @@ class Conversation(models.Model):
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	estado= models.IntegerField(choices=STATUS)
 	tipo=models.IntegerField(choices=TYPE)
-	dir=models.IntegerField(choices=DIR)
+	direccion= models.IntegerField(choices=DIR)
 	
 	def __str__(self):
 		return self.message_cuid+" "+self.contact_uid
