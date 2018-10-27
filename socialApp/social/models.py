@@ -50,7 +50,7 @@ class Conversation(models.Model):
 	modified=models.DateTimeField(auto_now=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	estado= models.IntegerField(choices=STATUS)
-	red=models.IntegerField(choices=TYPE)
+	red=models.IntegerField(choices=RED)
 	direction= models.IntegerField(choices=DIR)
 	tipo=ForeignKey(Tipo,on_delete=models.CASCADE,null=True)
 	
