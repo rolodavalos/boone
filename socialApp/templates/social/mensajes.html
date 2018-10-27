@@ -82,9 +82,9 @@
       </div>
     </div>
     <script>
-     function autoRefreshMessages(conver_pk) {
+     function autoRefreshMessages() {
         var parametros = {
-         "conversation_id":conver_pk
+         "conversation_id":{{conversation.id}}
         };
         $.ajax({
           data: parametros,
@@ -108,7 +108,7 @@
         }); 
       }     
       setInterval(autoRefreshMessages, 2000); // every 5 seconds
-      autoRefreshMessages({{conversation.id}}); //onload
+      autoRefreshMessages(); //onload
     </script>  
 
     <div id="messages_container">
