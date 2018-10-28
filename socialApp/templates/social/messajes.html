@@ -7,7 +7,7 @@
             {%else%}
                 <li class="sent">    
             {%endif%}
-                  <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
+                  <p><strong>{{message.message_text}}</strong><span><small>{{message.created|date:'d-m-y H:i'}}</small></span></p>
             </li>
         {%endfor%}
         <!--li class="replies">
