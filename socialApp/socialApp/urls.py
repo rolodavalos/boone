@@ -28,6 +28,6 @@ urlpatterns = [
     path('hooks',social_views.hooks,name='hooks'),
     path('contact/',social_views.showContact,name='show_contact'),
     path('conversations/',social_views.listConversations,name='list_conversations'),
-    path('conversation/<str:id>',social_views.displayMessages4Conversation, name="display_messages"),
+    path('conversation/messages/',social_views.displayMessages4Conversation, name="display_messages"),
     
 ]
