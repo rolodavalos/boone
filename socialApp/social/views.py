@@ -116,7 +116,7 @@ def viewMessage(request):
       messages= Message.objects.filter(conversation__pk=conversation.pk)
   else:
     conversation=conversations.first()
-    messages= Message.objects.filter(conversation__pk=conversation.pk)
+    messages= list(Message.objects.filter(conversation__pk=conversation.pk).order_by('-modified'))
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
   
 def displayMessage(request):
@@ -139,7 +139,7 @@ def showContact(request):
 
 def displayMessages4Conversation(request):
   conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
-  messages= Message.objects.filter(conversation__pk=conversation.pk)
+  messages= list(Message.objects.filter(conversation__pk=conversation.pk).order_by('-modified'))
   return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation})
   
   
