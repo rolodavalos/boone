@@ -119,15 +119,7 @@ def viewMessage(request):
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
   
 def displayMessage(request):
-  messages=None
-  conversation=None
-  if request.method=='POST':
-    conversation= Conversation.objects.get(pk=request.POST.get('conversation_id'))
-    if conversation:
-      conversation.estado=2
-      conversation.save()
-      messages= Message.objects.filter(conversation__pk=conversation.pk) 
-  return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation}) 
+  return render (request,'social/messajes.html',{}) 
 
 def showContact(request):
   if request.method=='POST':
