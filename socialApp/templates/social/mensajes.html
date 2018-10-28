@@ -10,13 +10,15 @@
 <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
    $(document).ready(function() {
-      $(".wrap").effect("highlight", {color:"#669966"}, 3000);
+      $(".target").effect("highlight", {color:"#669966"}, 3000);
    });
 </script> 
 
 {%endblock%}
 
 {%block container%}
+ <div class = "target">
+ </div>
 <div id="frame">
   <div id="sidepanel">
     <div id="profile">
