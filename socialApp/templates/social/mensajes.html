@@ -55,26 +55,21 @@
       <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
       <input type="text" placeholder="Buscar contactos..." />
     </div>
-    
-    <div id="contacts">
-      <ul>
-        {%for conver in conversations%}
-	 <li class="contact" onclick="display_message({{conver.pk}})">  
-              <div class="wrap">
-		  {%if conver.estado == 1%}
-	       		<span class="contact-status busy"></span>
-          	  {%else%}
-              		 <span class="contact-status online"></span> 
-          	  {%endif%}    
-                  <img src="{% static 'img/whatsapp.png' %}" alt="" />
-                  <div class="meta">
-                    <p class="name">{{conver.contact_uid}}</p>
-                    <p class="preview">Disponible.</p>
-                  </div>
-             </div>
-          </li>
-        {%endfor%}
-      </ul>
+     <div id="contacts">
+	  <div id="contacts_content"></div>
+	   <script>
+		function updateCnts() {
+  			$.ajax({
+    				url: "{%url 'list_conversations'%}",
+    				cache: false,
+    				success: function(response){
+      				$("#contact_content").html(response);
+    				}
+   			});
+   			setTimeout('updateCnts()', 5000);
+			}
+		updateCnts();  
+	    </script> 	         
     </div>
     <div id="bottom-bar">
       <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
@@ -99,7 +94,7 @@
    			});
    			setTimeout('updateCnt()', 5000);
 			}
-		updateCnt({{id}});  
+		updateCnt({{conversation.id}});  
 	    </script> 	  
     <div id="messages_container"></div>
 	  <script>
@@ -118,7 +113,7 @@
    			});
    			setTimeout('updateMsg()', 5000);
 			}
-		updateMsg({{id}});  
+		updateMsg({{conversation.id}});  
 	    </script> 
     <div class="message-input">
       <div class="wrap">
