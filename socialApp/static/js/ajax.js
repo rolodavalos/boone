@@ -16,7 +16,7 @@ $(document).ready(function(){
             },   
          }); 
       setInterval(function() {
-         $(this).click()
+         $(this).trigger('click');
       },5000);
    });                             
 });
