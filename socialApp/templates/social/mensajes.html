@@ -144,7 +144,7 @@ function display_message(conver_pk){
  
   $.ajax({
     data: parametros,
-    url:"{%url 'display_message'%}",
+    url:"{%url 'display_messages'%}",
     type: 'post',
     beforeSend: function() {
        $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
