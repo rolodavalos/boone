@@ -11,7 +11,7 @@ $(document).ready(function(){
             url:"/conversation/messages/",
             type: 'post',  
             success: function(response){
-            $("#messages").html(response);    
+            $("#messages_container").html(response);    
             },   
          }); 
    });   
