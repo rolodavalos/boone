@@ -72,7 +72,7 @@
 	{%endif%}		    
       	</ul>	       
 	</div> 
-	<script>
+	<!--script>
 	setInterval(updateConversations, 5000); //300000 MS == 5 minutes 
    	function updateConversations(){
       		$.ajax({
@@ -82,7 +82,7 @@
             		},   
          	});
    	}    
-	</script>	         
+	</script-->	         
     </div>
     <div id="bottom-bar">
       <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
@@ -103,12 +103,19 @@
 	  </div>
 	  
     <div id="messages" class="messages">
-	      
-<script>
-    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
-</script>
-	    
-	  </div>	   
+	<ul>
+        {%for message in conversation.message_set|slice:":1"%}
+            	{%if message.direction == 1%}
+                	<li class="replies">
+            	{%else%}
+                	<li class="sent">    
+            	{%endif%}
+                  	<p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
+            	</li>
+        {%endfor%}
+      		
+	</ul>  
+    </div>	   
 	 
     <div class="message-input">
       <div class="wrap">
