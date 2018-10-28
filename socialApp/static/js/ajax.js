@@ -3,10 +3,10 @@ $(document).ready(function(){
     console.log('click registered');
     var id = $(this).attr('id');
     console.log(id);
+    var parametros = {
+      "conversation_id":id
+    };  
       $.ajax({
-         var parametros = {
-         "conversation_id":id
-         }; 
          data: parametros,
          url:"{%url 'display_messages'%}",
          type: 'post',  
