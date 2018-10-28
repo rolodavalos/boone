@@ -43,22 +43,20 @@
       <ul>
         {%for conver in conversations%}
           {%if conversation is not None%}
-            {%if conversation.estado == 1%}
-              <script>
-                $(".contact").animate("highlight", {}, 3000);
-              </script>  
-            {%endif%}
-        
             {%if conver.contact_uid == conversation.contact_uid %}
-              <li class="contact" onclick="display_message({{conver.pk}})"> 
+              <li id="conver_li" class="contact" onclick="display_message({{conver.pk}})"> 
             {%else%}
-              <li class="contact" onclick="display_message({{conver.pk}})">  
+              <li id="conver_li" class="contact" onclick="display_message({{conver.pk}})">  
             {%endif%}
           {%else%}
-            <li class="contact" onclick="display_message({{conver.pk}})">  
+            <li  id="conver_li" class="contact" onclick="display_message({{conver.pk}})">  
           {%endif%} 
+              {%if conversation.estado == 1%}
+                <script>
+                  $("#conver_li").animate("highlight", {}, 3000);
+                </script>  
+              {%endif%}
               <div class="wrap">
-              
                   <span class="contact-status online"></span>
                   <img src="{% static 'img/whatsapp.png' %}" alt="" />
                   <div class="meta">
