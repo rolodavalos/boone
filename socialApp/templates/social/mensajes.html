@@ -54,10 +54,10 @@
 	    <ul id="conversations"> 
 	{%if conversations%}	    
         	{%for conver in conversations%}
-	 	<li class="contact" id="{{conver.id}}" id="busy">  
+	 	<li class="contact" id="{{conver.id}}" >  
               	<div class="wrap">
 		  	{%if conver.estado == 1%}
-	       			<span class="contact-status busy"></span>
+	       			<span class="contact-status busy" id="busy">Nuevo</span>
           	  	{%else%}
               		 	<span class="contact-status online"></span> 
           	  	{%endif%}    
