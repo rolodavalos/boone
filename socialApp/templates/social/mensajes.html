@@ -59,7 +59,7 @@
 	  <div id="contacts_content">
 	  	<ul id="conversations"> 
         {%for conver in conversations%}
-	 <li class="contact" id="conver.id">  
+	 <li class="contact" id="{{conver.id}}">  
               <div class="wrap">
 		  {%if conver.estado == 1%}
 	       		<span class="contact-status busy"></span>
