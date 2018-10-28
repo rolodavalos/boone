@@ -1,6 +1,6 @@
 $(document).ready(function(){
    
-   $("#contact-status busy").effect("highlight", {}, 2000); 
+   $(".busy").effect("highlight", {}, 2000); 
    
    $('#conversations').on('click', 'li', function() {
     console.log('click registered');
