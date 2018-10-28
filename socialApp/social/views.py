@@ -77,7 +77,7 @@ def hooks(request):
       conversation.message_cuid=whabox.message_cuid
       conversation.contact_uid=whabox.contact_uid
       conversation.estado=1
-      conversation.tipo=2
+      conversacion.red=2
       conversation.dir=1
       conversation.save()
       
