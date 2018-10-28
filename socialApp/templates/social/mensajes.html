@@ -95,8 +95,8 @@
     </div>
    
     <div id="messages_container"> 		  
-	    <scrip>
-	         $("#messages_container").html({%url 'display_message'%})	    
+	    <script>
+	      $("#messages_container").html({% url 'display_message'%})	    
 	    </script>    
     </div>
     <div class="message-input">
