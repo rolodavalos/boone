@@ -94,8 +94,8 @@
       </div>
     </div>
    
-    <div id="messages_container"> 		  
-	    <script>
+    <div id="messages_container"></div>
+	  <script>
 		var parametros = {
     			"conversation_id":{{conversation.pk}}
   		};    
@@ -105,10 +105,9 @@
     		type: 'post',
     		success: function(response){
       		$("#messages_container").html(response);
-    		},
+    		}
  		});
-	    </script>    
-    </div>
+	    </script> 
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="#" id="formConversation">
