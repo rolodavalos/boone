@@ -25,6 +25,16 @@ $(document).ready(function(){
             $("#messages").html(response);    
             },   
          }); 
-   });   
+   });
+   
+      setInterval(funcgtion(){
+           $.ajax({
+            url:"/conversations/",  
+            success: function(response){
+            $("#contacts_content").html(response);    
+            },   
+         });                      
+      },5000);
+           
 });
 
