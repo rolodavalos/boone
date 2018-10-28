@@ -1,6 +1,22 @@
 {% load static %} 
 <ul>
         {%for conver in conversations%}
+	<script>
+	var parametros = {
+    	"conversation_id":conver.pk
+  	};
+ 	$.ajax({
+   	 data: parametros,
+   	 url:"{%url 'display_messages'%}",
+    	type: 'post',	 
+    	beforeSend: function() {
+      	 $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+    	},
+    	success: function(response){
+     	 $("#messages_container").html(response);    
+    	},
+  	}); 	
+	</script>	
 	 <li class="contact" onclick="display_message({{conver.pk}})">  
               <div class="wrap">
 		  {%if conver.estado == 1%}
@@ -48,5 +64,6 @@ var parametros = {
       $("#messages_container").html(response);    
     },
   }); 			
+setTimeout('update_messages()', 5000);
 }	
 </script>	
