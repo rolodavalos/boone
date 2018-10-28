@@ -96,6 +96,9 @@
    
     <div id="messages_container"> 		  
 	    <script>
+		var parametros = {
+    			"conversation_id":{{conversation.pk}}
+  		};    
 	        $.ajax({
     		data: parametros,
     		url:"{%url 'display_message'%}",
