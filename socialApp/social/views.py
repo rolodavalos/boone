@@ -95,16 +95,7 @@ def hooks(request):
     
     return HttpResponse('pong')
   
-def listMessages(request):
-  conversations=Conversation.objects.order_by('-modified')
-  conversation=None
-  messages=None
-  if conversations: 
-    conversation=conversations[0]
-    messages=Message.objects.filter(conversation__pk=conversation.pk)
-  if request.method=='GET':
-    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
-    
+
 def viewMessage(request):
   conversations=None
   conversations=Conversation.objects.order_by('-modified')
@@ -133,8 +124,7 @@ def showContact(request):
 
 def displayMessages4Conversation(request):
   conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
-  messages= list(Message.objects.filter(conversation__pk=conversation.pk).order_by('created'))
-  return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation})
+  return render (request,'social/messajes.html',{'conversation':conversation})
   
   
       
