@@ -84,9 +84,9 @@
   <div class="content">
     <div id="contact-profile"></div>
 	  <script>
-		function updateCnt() {
+		function updateCnt(id) {
 			var parametros = {
-    			"conversation_id":{{conversation.pk}}
+    			"conversation_id":id
   			};
   			$.ajax({
 				data: parametros,
@@ -99,13 +99,13 @@
    			});
    			setTimeout('updateCnt()', 5000);
 			}
-		updateCnt();  
+		updateCnt({{id}});  
 	    </script> 	  
     <div id="messages_container"></div>
 	  <script>
-		function updateMsg() {
+		function updateMsg(id) {
 			var parametros = {
-    			"conversation_id":{{conversation.pk}}
+    			"conversation_id":id
   			};
   			$.ajax({
 				data: parametros,
@@ -118,7 +118,7 @@
    			});
    			setTimeout('updateMsg()', 5000);
 			}
-		updateMsg();  
+		updateMsg({{id}});  
 	    </script> 
     <div class="message-input">
       <div class="wrap">
