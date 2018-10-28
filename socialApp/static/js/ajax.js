@@ -11,7 +11,7 @@ $(document).ready(function(){
             url:"/contact/",
             type: 'post',  
             success: function(response){
-            $("#contact_profile").html(response);    
+            $("#contact-profile").html(response);    
             },   
          }); 
          $.ajax({
