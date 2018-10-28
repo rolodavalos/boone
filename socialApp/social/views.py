@@ -133,8 +133,8 @@ def listConversations(request):
   conversations=Conversation.objects.order_by('-modified')
   return render (request,'social/contacts_content.html',{'conversations':conversations})
 
-def displayMessages4Conversation(request,id):
-  conversation=Conversation.objects.get(pk=id)
+def displayMessages4Conversation(request):
+  conversation=Conversation.objects.ge(pk=request.POST.get('conversation_id'))
   messages= Message.objects.filter(conversation__pk=conversation.pk)
   return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation})
   
