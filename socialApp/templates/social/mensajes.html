@@ -140,8 +140,8 @@ function display_message(conver_pk){
     success: function(response){
       $("#contact-profile").html(response);
     },  
-  });	
- 
+  });
+ 	
   $.ajax({
     data: parametros,
     url:"{%url 'display_messages'%}",
