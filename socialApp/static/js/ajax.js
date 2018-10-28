@@ -1,3 +1,4 @@
+{% load static %} 
 function display_message(conversation_id){
   var parametros = {
     "conversation_id":conversation_id
