@@ -56,28 +56,8 @@
       <input type="text" placeholder="Buscar contactos..." />
     </div>
      <div id="contacts">
-	  <div id="contacts_content"></div>
-	   <script>
-		function updateCnts() {
-  			$.ajax({
-    				url: "{%url 'list_conversations'%}",
-    				success: function(response){
-      				$("#contacts_content").html(response);
-    				}
-   			});
-   			setTimeout('updateCnts()', 5000);
-			}
-		updateCnts(); 
-	    </script> 	         
-    </div>
-    <div id="bottom-bar">
-      <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
-      <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Configuraci&oacute;n</span></button>
-    </div>
-  </div>
-  <div class="content">
-    <div id="contact-profile">
-	<ul id="conversations"> 
+	  <div id="contacts_content">
+	  	<ul id="conversations"> 
         {%for conver in conversations%}
 	 <li class="contact" id="conver.id">  
               <div class="wrap">
@@ -94,7 +74,28 @@
              </div>
           </li>
         {%endfor%}
-      </ul>	    	  
+      </ul>	       
+	  </div>
+	   <!--script>
+		function updateCnts() {
+  			$.ajax({
+    				url: "{%url 'list_conversations'%}",
+    				success: function(response){
+      				$("#contacts_content").html(response);
+    				}
+   			});
+   			setTimeout('updateCnts()', 5000);
+			}
+		updateCnts(); 
+	    </script--> 	         
+    </div>
+    <div id="bottom-bar">
+      <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
+      <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Configuraci&oacute;n</span></button>
+    </div>
+  </div>
+  <div class="content">
+    <div id="contact-profile">	  
     </div>
 	  
     <div id="messages_container"></div>
