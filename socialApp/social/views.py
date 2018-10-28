@@ -24,6 +24,9 @@ import json
 
 # Create your views here.
 
+def demo(request):
+  return render(request,'social/demo.html',{})  
+  
 def sendMessage(request):
   token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
   uid='595991732060'
