@@ -40,10 +40,7 @@ class Conversation(models.Model):
     	(3, ("FB")),
 	(4, ("IG"))
 	)
-	DIR = (
-    	(1, ("I")),
-    	(2, ("O"))
-	)
+	
 	message_cuid=models.CharField(max_length=255)
 	contact_uid=models.CharField(max_length=255)
 	created=models.DateTimeField(auto_now_add=True)
@@ -51,7 +48,6 @@ class Conversation(models.Model):
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	estado= models.IntegerField(choices=STATUS)
 	red=models.IntegerField(choices=RED)
-	direction= models.IntegerField(choices=DIR)
 	tipo=models.ForeignKey(Tipo,on_delete=models.CASCADE,null=True)
 	
 	def __str__(self):
@@ -64,11 +60,17 @@ class Message(models.Model):
     	(2, ("DELIVERED")),
 	(3, ("READ")),
 	)
+	DIR = (
+    	(1, ("I")),
+    	(2, ("O"))
+	)
 	conversation=models.ForeignKey(Conversation,on_delete=models.CASCADE)
 	message_text=models.CharField(max_length=255)
+	direction= models.IntegerField(choices=DIR)
 	estado=models.IntegerField(choices=STATUS)
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+	
 	
 	
 	
