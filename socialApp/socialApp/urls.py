@@ -27,6 +27,7 @@ urlpatterns = [
   #  path('social/', social_views.sendMessage,name='send_message'),
     path('hooks',social_views.hooks,name='hooks'),
     path('contact/',social_views.showContact,name='show_contact'),
+    path('contacts/',social_views.showContacts,name='show_contacts'),
     path('conversations/',social_views.listConversations,name='list_conversations'),
     path('conversation/<str:id>',social_views.displayMessages4Conversation),
     
