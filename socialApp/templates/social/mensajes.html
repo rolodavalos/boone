@@ -108,7 +108,14 @@ function display_message(conver_pk){
     },  
   });
  	
-  $.ajax({
+ update_messages(conver_pk);  	
+}
+	
+function update_messages(conver_pk){
+var parametros = {
+    "conversation_id":conver_pk
+  };
+ $.ajax({
     data: parametros,
     url:"{%url 'display_messages'%}",
     type: 'post',
@@ -118,10 +125,10 @@ function display_message(conver_pk){
     success: function(response){
       $("#messages_container").html(response);
     },
-  }); 
-    setTimeout('display_message()', 5000);	
+  }); 	
+ setTimeout('update_messages()', 5000);		
+}	
 	
-}
 </script>
 <script>
 $(".messages").animate({ scrollTop: $(document).height() }, "fast");
