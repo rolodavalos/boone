@@ -95,7 +95,9 @@
     </div>
    
     <div id="messages_container"> 		  
-	    {%include "social/messajes.html"%} 
+	    <scrip>
+	         $("#messages_container").html({%url 'display_message'%})	    
+	    </script>    
     </div>
     <div class="message-input">
       <div class="wrap">
