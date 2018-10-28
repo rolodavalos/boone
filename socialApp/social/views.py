@@ -120,18 +120,21 @@ def viewMessage(request):
   
 def displayMessage(request):
   return render (request,'social/messajes.html',{}) 
+  
+def listConversations(request):
+  conversations=Conversation.objects.order_by('-modified')
+  return render (request,'social/contacts_content.html',{'conversations':conversations})
+
 
 def showContact(request):
   if request.method=='POST':
     conversation_id=request.POST.get('conversation_id')
     conversation= Conversation.objects.get(pk=conversation_id)
     if conversation:
+      conversation.estado=1
+      conversation.save()
       print(conversation.contact_uid)
     return render (request,'social/contact_profile.html',{'conversation':conversation})  
-  
-def listConversations(request):
-  conversations=Conversation.objects.order_by('-modified')
-  return render (request,'social/contacts_content.html',{'conversations':conversations})
 
 def displayMessages4Conversation(request):
   conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
