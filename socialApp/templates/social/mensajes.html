@@ -101,15 +101,15 @@
     			"conversation_id":{{conversation.pk}}
   			};
   			$.ajax({
-    			url: "{%url 'display_message'%}",
-    			cache: false,
-    			success: function(html){
-      			$("#messages_container").html(html);
-    			}
+    				url: "{%url 'display_message'%}",
+    				cache: false,
+    				success: function(response){
+      				$("#messages_container").html(response);
+    				}
    			});
-   			setTimeout('updateMsg()', 4000);
+   			setTimeout('updateMsg()', 5000);
 			}
-			updateMsg();  
+		updateMsg();  
 	    </script> 
     <div class="message-input">
       <div class="wrap">
