@@ -59,14 +59,10 @@
     <div id="contacts">
       <ul>
         {%for conver in conversations%}
-	  {%if conver.estado == 1%}
-	       <li class="contact active" onclick="display_message({{conver.pk}})"> 
-          {%else%}
-               <li class="contact" onclick="display_message({{conver.pk}})">  
-          {%endif%}  
+	 <li class="contact" onclick="display_message({{conver.pk}})">  
               <div class="wrap">
 		  {%if conver.estado == 1%}
-	       		<span class="contact-status offline"></span>
+	       		<span class="contact-status busy"></span>
           	  {%else%}
               		 <span class="contact-status online"></span> 
           	  {%endif%}    
