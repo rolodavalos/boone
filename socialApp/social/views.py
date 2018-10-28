@@ -118,6 +118,8 @@ def displayMessage(request):
   if request.method=='POST':
     conversation= Conversation.objects.get(pk=request.POST.get('conversation_id'))
     if conversation:
+      conversation.estado=2
+      conversation.save()
       messages= Message.objects.filter(conversation__pk=conversation.pk) 
   return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation}) 
 
