@@ -139,7 +139,7 @@ def showContact(request):
   
 def listConversations(request):
   conversations=Conversation.objects.order_by('-modified')
-  return render (request,'social/conversations.html',{'conversations':conversations})
+  return render (request,'social/contacts_content.html',{'conversations':conversations})
 
 def displayMessages4Conversation(request,id):
   conversation=Conversation.objects.get(pk=id)
