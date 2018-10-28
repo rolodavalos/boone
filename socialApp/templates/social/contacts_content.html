@@ -1,8 +1,8 @@
 {% load static %} 
 <ul id="conversations"> 
         {%for conver in conversations%}
-	 <li class="contact" id="conver.id" id="busy">  
-              <div class="wrap">
+	 <li class="contact" id="conver.id">  
+              <div class="wrap" id="busy">
 		  {%if conver.estado == 1%}
 	       		<span class="contact-status busy"></span>
           	  {%else%}
