@@ -8,10 +8,10 @@ $(document).ready(function(){
     };  
       $.ajax({
          data: parametros,
-         url:"{%url 'display_messages'%}",
+         url:"/conversation/messages/",
          type: 'post',  
          beforeSend: function() {
-         $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
+         $("#messages_container").html("<div class='col-12'><img src='img/loading-icon.gif'><div>");
          },
          success: function(response){
          $("#messages_container").html(response);    
