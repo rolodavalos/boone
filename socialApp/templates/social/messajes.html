@@ -2,8 +2,11 @@
 <div class="messages">        
 <ul>
         {%for message in messages%}
-            <h3>{{message.direction}}</h3>
-            <li class="replies">  
+            {%if message.direction==1%}
+                <li class="replies">
+            {%else%}
+                <li>    
+            {%endif%}
                   <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
             </li>
         {%endfor%}
