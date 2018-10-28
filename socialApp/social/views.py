@@ -108,6 +108,7 @@ def listMessages(request):
 def viewMessage(request):
   displayMessage(request)
   showContact(request)
+  return HttpResponse('pong')
   
   """
   conversations=None
