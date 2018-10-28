@@ -111,14 +111,12 @@ function display_message(conver_pk){
       $("#contact-profile").html(response);
     },  
   });
- 	
- update_messages(conver_pk);  
- 	
+ update_messages(conver_pk);  	
 }
 	
 function update_messages(conver_pk){	
 var parametros = {
-    "conversation_id": 
+    "conversation_id":conver_pk
   };
  $.ajax({
     data: parametros,
@@ -128,8 +126,7 @@ var parametros = {
        $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
     success: function(response){
-      $("#messages_container").html(response);
-	    
+      $("#messages_container").html(response);    
     },
   }); 			
 }	
