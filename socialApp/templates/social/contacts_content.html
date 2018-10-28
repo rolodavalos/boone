@@ -1,4 +1,5 @@
- <ul>
+{% load static %} 
+<ul>
         {%for conver in conversations%}
 	 <li class="contact" onclick="display_message({{conver.pk}})">  
               <div class="wrap">
