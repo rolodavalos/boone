@@ -78,7 +78,6 @@ def hooks(request):
       conversation.contact_uid=whabox.contact_uid
       conversation.estado=1
       conversation.red=2
-      conversation.direction=1
       conversation.save()
       
       #Guardar mensaje
@@ -86,6 +85,7 @@ def hooks(request):
       message.conversation=conversation
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
+      message.direction=1
       message.save()
     
     return HttpResponse('pong')
