@@ -108,7 +108,7 @@ def viewMessage(request):
   conversations=None
   conversation=None
   messages=None
-  conversations=Conversation.objects.order_by('-modified')
+  conversations=Conversation.objects.order_by('-modified','estado')
   if request.method=='POST':
     conversation= Conversation.objects.get(contact_uid=request.POST.get('customer_uid'))
     if conversation:
