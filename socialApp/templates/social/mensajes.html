@@ -104,8 +104,7 @@
 	  
     <div id="messages" class="messages">
 	    <ul>
-		{%if messages%}    
-        	{%for message in messages%}
+        	{%for message in conversation.message_set|slice:":1"%}
             		{%if message.direction == 1%}
                 		<li class="replies">
             		{%else%}
@@ -114,7 +113,7 @@
                   		<p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
             		</li>
         	{%endfor%}
-      		{%endif%}
+      		
 		</ul>     
 <script>
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
