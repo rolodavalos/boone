@@ -8,6 +8,14 @@ $(document).ready(function(){
          };  
          $.ajax({
             data: parametros,
+            url:"/contact/",
+            type: 'post',  
+            success: function(response){
+            $("#contact_profile").html(response);    
+            },   
+         }); 
+         $.ajax({
+            data: parametros,
             url:"/conversation/messages/",
             type: 'post',  
             success: function(response){
