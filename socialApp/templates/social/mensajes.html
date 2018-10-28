@@ -119,9 +119,7 @@ var parametros = {
  $.ajax({
     data: parametros,
     url:"{%url 'display_messages'%}",
-    type: 'post',
-    async: true,	 
-    timeout: 5000,	 
+    type: 'post',	 
     beforeSend: function() {
        $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
@@ -129,8 +127,7 @@ var parametros = {
       $("#messages_container").html(response);
 	    
     },
-  }
-     15000); 			
+  }); 			
 }	
 	
 </script>
