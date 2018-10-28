@@ -96,17 +96,20 @@
    
     <div id="messages_container"></div>
 	  <script>
-		var parametros = {
+		function updateMsg() {
+			var parametros = {
     			"conversation_id":{{conversation.pk}}
-  		};    
-	        $.ajax({
-    		data: parametros,
-    		url:"{%url 'display_message'%}",
-    		type: 'post',
-    		success: function(response){
-      		$("#messages_container").html(response);
-    		}
- 		});
+  			};
+  			$.ajax({
+    			url: "{%url 'display_message'%}",
+    			cache: false,
+    			success: function(html){
+      			$("#messages_container").html(html);
+    			}
+   			});
+   			setTimeout('updateMsg()', 4000);
+			}
+			updateMsg();  
 	    </script> 
     <div class="message-input">
       <div class="wrap">
