@@ -66,7 +66,8 @@
                <li class="contact" onclick="display_message({{conver.pk}})">  
           {%endif%}  
               <div class="wrap">
-                  <span class="contact-status online"></span>
+		  <span class="badge badge-light">{{messages.count()}}</span> 
+                  <!--span class="contact-status online"></span-->
                   <img src="{% static 'img/whatsapp.png' %}" alt="" />
                   <div class="meta">
                     <p class="name">{{conver.contact_uid}}</p>
