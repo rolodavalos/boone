@@ -120,14 +120,14 @@ var parametros = {
     data: parametros,
     url:"{%url 'display_messages'%}",
     type: 'post',
+    timeout: 5000,	 
     beforeSend: function() {
        $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
     },
     success: function(response){
       $("#messages_container").html(response);
     },
-  }); 	
- setTimeout('update_messages(conver_pk)', 5000);		
+  }); 			
 }	
 	
 </script>
