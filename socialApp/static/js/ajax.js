@@ -1,9 +1,8 @@
-$(document).ready(function(){
+//$(document).ready(function(){
    $('#conversations').on('click', 'li', function() {
     console.log('click registered');
     var id = $(this).attr('id');
     console.log(id);
-      
       var parametros = {
          "conversation_id":id
          };  
@@ -15,9 +14,6 @@ $(document).ready(function(){
             $("#messages_container").html(response);    
             },   
          }); 
-      setInterval(function() {
-         $(this).trigger('click');
-      },5000);
-   });                             
-});
+   });   
+//});
 
