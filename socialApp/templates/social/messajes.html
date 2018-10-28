@@ -2,10 +2,10 @@
 <div class="messages">        
 <ul>
         {%for message in messages%}
-            {%print(message.direction)%}
-          <li class="replies">  
+            <h3>{{message.direction}}</h3>
+            <li class="replies">  
                   <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
-          </li>
+            </li>
         {%endfor%}
         <!--li class="replies">
           <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
