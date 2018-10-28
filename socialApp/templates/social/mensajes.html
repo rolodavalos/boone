@@ -102,6 +102,7 @@
   			};
   			$.ajax({
     				url: "{%url 'display_message'%}",
+				type: 'post',
     				cache: false,
     				success: function(response){
       				$("#messages_container").html(response);
