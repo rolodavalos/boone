@@ -52,7 +52,7 @@
      <div id="contacts">
 	  <div id="contacts_content">
 	    <ul id="conversations"> 
-	{%if conversations%}	    
+		{%if conversations%}	    
         	{%for conver in conversations%}
 	 	<li class="contact" id="{{conver.id}}" >  
               	<div class="wrap">
@@ -71,7 +71,18 @@
         	{%endfor%}
 	{%endif%}		    
       	</ul>	       
-	</div>         
+	</div> 
+	<script>
+	setInterval(updateConversations, 5000); //300000 MS == 5 minutes 
+   	function updateConversations(){
+      		$.ajax({
+            		url:"/conversations/",  
+            		success: function(response){
+            		$("#contacts_content").html(response);    
+            		},   
+         	});
+   	}    
+	</script>	         
     </div>
     <div id="bottom-bar">
       <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
