@@ -104,7 +104,7 @@
 	  
     <div id="messages" class="messages">
 	<ul>
-        {%for message in conversation.message_set|slice:":1"%}
+        {%for message in conversation.message_set.all()%}
             	{%if message.direction == 1%}
                 	<li class="replies">
             	{%else%}
