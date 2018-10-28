@@ -123,7 +123,7 @@ def displayMessage(request):
   return render (request,'social/messajes.html',{}) 
   
 def listConversations(request):
-  conversations=Conversation.objects.order_by('-created')
+  conversations=Conversation.objects.order_by('-modified')
   return render (request,'social/contacts_content.html',{'conversations':conversations})
 
 
