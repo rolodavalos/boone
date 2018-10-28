@@ -131,7 +131,7 @@ def showContact(request):
     conversation_id=request.POST.get('conversation_id')
     conversation= Conversation.objects.get(pk=conversation_id)
     if conversation:
-      conversation.estado=1
+      conversation.estado=2
       conversation.save()
       print(conversation.contact_uid)
     return render (request,'social/contact_profile.html',{'conversation':conversation})  
