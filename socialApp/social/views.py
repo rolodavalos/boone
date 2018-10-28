@@ -134,8 +134,7 @@ def listConversations(request):
   return render (request,'social/contacts_content.html',{'conversations':conversations})
 
 def displayMessages4Conversation(request):
-  print("EL id de la conversacion: "+request.POST.get('conversation_id'))
-  conversation=Conversation.objects.ge(pk=request.POST.get('conversation_id'))
+  conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
   messages= Message.objects.filter(conversation__pk=conversation.pk)
   return render (request,'social/messajes.html',{'messages':messages,'conversation':conversation})
   
