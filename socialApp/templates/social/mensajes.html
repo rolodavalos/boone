@@ -61,7 +61,6 @@
 		function updateCnts() {
   			$.ajax({
     				url: "{%url 'list_conversations'%}",
-    				dataType: 'json',
     				success: function(response){
       				$("#contacts_content").html(response);
     				}
