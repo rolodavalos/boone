@@ -116,6 +116,7 @@ def viewMessage(request):
       messages= Message.objects.filter(conversation__pk=conversation.pk)
   else:
     conversation=conversations.first()
+    messages= Message.objects.filter(conversation__pk=conversation.pk)
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
   
 def displayMessage(request):
