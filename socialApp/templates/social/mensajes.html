@@ -77,43 +77,9 @@
   </div>
   <div class="content">
     <div id="contact-profile"></div>
-	  <script>
-		function updateCnt(id) {
-			var parametros = {
-    			"conversation_id":id
-  			};
-  			$.ajax({
-				data: parametros,
-    				url: "{%url 'show_contact'%}",
-				type: 'post',
-    				cache: false,
-    				success: function(response){
-      				$("#contact-profile").html(response);
-    				}
-   			});
-   			setTimeout('updateCnt()', 5000);
-			}
-		updateCnt({{conversation.id}});  
-	    </script> 	  
+	  
     <div id="messages_container"></div>
-	  <script>
-		function updateMsg(id) {
-			var parametros = {
-    			"conversation_id":id
-  			};
-  			$.ajax({
-				data: parametros,
-    				url: "{%url 'display_messages'%}",
-				type: 'post',
-    				cache: false,
-    				success: function(response){
-      				$("#messages_container").html(response);
-    				}
-   			});
-   			setTimeout('updateMsg()', 5000);
-			}
-		updateMsg({{conversation.id}});  
-	    </script> 
+	 
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="#" id="formConversation">
