@@ -84,7 +84,7 @@
   <div class="content">
     <div id="contact-profile"></div>
 	  <script>
-		function updateMsg() {
+		function updateCnt() {
 			var parametros = {
     			"conversation_id":{{conversation.pk}}
   			};
@@ -97,9 +97,9 @@
       				$("#contact-profile").html(response);
     				}
    			});
-   			setTimeout('updateMsg()', 5000);
+   			setTimeout('updateCnt()', 5000);
 			}
-		updateMsg();  
+		updateCnt();  
 	    </script> 	  
     <div id="messages_container"></div>
 	  <script>
