@@ -84,9 +84,39 @@
   </div>
   <div class="content">
      
-    <div id="contact-profile" class="contact-profile"></div>
+    <div id="contact-profile" class="contact-profile">
+	    <img src="http://www.baytekgames.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg" alt="" />
+      {%if conversation is not None%}
+      <p>{{conversation.contact_uid}}</p>
+      {%endif%}
+      <div class="social-media">
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <i class="fa fa-instagram" aria-hidden="true"></i>
+      </div>
+	  </div>
 	  
-    <div id="messages" class="messages"></div>	   
+    <div id="messages" class="messages">
+	    <ul>
+        {%for message in messages%}
+            {%if message.direction == 1%}
+                <li class="replies">
+            {%else%}
+                <li class="sent">    
+            {%endif%}
+                  <p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
+            </li>
+        {%endfor%}
+        <!--li class="replies">
+          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+          <p>When you're backed against the wall, break the god damn thing down.</p>
+        </li-->
+</ul>     
+<script>
+    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+</script>
+	    
+	  </div>	   
 	 
     <div class="message-input">
       <div class="wrap">
