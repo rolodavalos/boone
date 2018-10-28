@@ -52,6 +52,7 @@ class Conversation(models.Model):
 	
 	def __str__(self):
 		return self.message_cuid+" "+self.contact_uid
+
 	
 class Message(models.Model):
 	STATUS = (
