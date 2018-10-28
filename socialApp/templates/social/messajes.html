@@ -3,7 +3,7 @@
 <ul>
         {%for message in messages%}
             {%print(message.direction)%}
-      
+          <li class="replies">  
                   <p><strong>{{message.message_text}}</strong><span class="badge badge-secondary">{{message.created|date:'d-m-y H:i'}}</span></p>
           </li>
         {%endfor%}
