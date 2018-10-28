@@ -106,11 +106,6 @@ def listMessages(request):
     return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation,'messages':messages})
     
 def viewMessage(request):
-  displayMessage(request)
-  showContact(request)
-  return HttpResponse('pong')
-  
-  """
   conversations=None
   conversation=None
   messages=None
@@ -122,7 +117,7 @@ def viewMessage(request):
   else:
     conversation=conversations.first()
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
-  """    
+  
 def displayMessage(request):
   messages=None
   conversation=None
