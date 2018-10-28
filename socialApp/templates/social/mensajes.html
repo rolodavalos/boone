@@ -132,8 +132,7 @@
 function display_message(conver_pk){
   var parametros = {
     "conversation_id":conver_pk
-  };
-/	
+  };	
   $.ajax({
     data: parametros,
     url:"{%url 'show_contact'%}",
@@ -152,7 +151,7 @@ function display_message(conver_pk){
    // },
     success: function(response){
       $("#messages_container").html(response);
-    }
+    },
   }); 
 }
 </script>
