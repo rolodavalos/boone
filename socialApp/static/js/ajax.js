@@ -27,14 +27,15 @@ $(document).ready(function(){
          }); 
    });
    
-      setInterval(function(){
-           $.ajax({
+   setInterval(updateConversations, 5000); //300000 MS == 5 minutes
+   
+   function updateConversations(){
+      $.ajax({
             url:"/conversations/",  
             success: function(response){
             $("#contacts_content").html(response);    
             },   
-         });                      
-      },5000);
-           
+         });
+   }                                      
 });
 
