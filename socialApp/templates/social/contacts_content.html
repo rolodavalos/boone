@@ -1,0 +1,18 @@
+ <ul>
+        {%for conver in conversations%}
+	 <li class="contact" onclick="display_message({{conver.pk}})">  
+              <div class="wrap">
+		  {%if conver.estado == 1%}
+	       		<span class="contact-status busy"></span>
+          	  {%else%}
+              		 <span class="contact-status online"></span> 
+          	  {%endif%}    
+                  <img src="{% static 'img/whatsapp.png' %}" alt="" />
+                  <div class="meta">
+                    <p class="name">{{conver.contact_uid}}</p>
+                    <p class="preview">Disponible.</p>
+                  </div>
+             </div>
+          </li>
+        {%endfor%}
+      </ul>
