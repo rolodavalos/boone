@@ -112,6 +112,7 @@ function display_message(conver_pk){
 }
 	
 function update_messages(conver_pk){
+alert("HOLA YA ANDA!!");	
 var parametros = {
     "conversation_id":conver_pk
   };
@@ -126,7 +127,7 @@ var parametros = {
       $("#messages_container").html(response);
     },
   }); 	
- setTimeout('update_messages()', 5000);		
+ setTimeout('update_messages(conver_pk)', 5000);		
 }	
 	
 </script>
