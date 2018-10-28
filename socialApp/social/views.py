@@ -69,6 +69,7 @@ def hooks(request):
       message.conversation=conversation
       message.message_text=whabox.message_text
       message.estado=whabox.message_ack
+      message.direction=1
       message.save() 
       conversation.save()    
     else:
