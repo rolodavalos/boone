@@ -1,4 +1,7 @@
-$('#conversations').on('click', 'li', function() {
+$(document).ready(funtion(){
+   $('#conversations').on('click', 'li', function() {
     alert("HOLA MUNDO");
     console.log('click registered');
+    });                             
 });
+
