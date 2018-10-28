@@ -1,18 +1,14 @@
 <ul>
-        {%for message in messages%}
-            {%if message.direction == 1%}
-                <li class="replies">
-            {%else%}
-                <li class="sent">    
-            {%endif%}
-                  <p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
-            </li>
-        {%endfor%}
-        <!--li class="replies">
-          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-          <p>When you're backed against the wall, break the god damn thing down.</p>
-        </li-->
-</ul>     
+        {%for message in conversation.message_set.all %}
+            	{%if message.direction == 1%}
+                	<li class="replies">
+            	{%else%}
+                	<li class="sent">    
+            	{%endif%}
+                  	<p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
+            	</li>
+        {%endfor%}   		
+	</ul>     
 <script>
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 </script>
