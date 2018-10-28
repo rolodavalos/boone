@@ -96,7 +96,14 @@
    
     <div id="messages_container"> 		  
 	    <script>
-	      $("#messages_container").html({% url 'display_message'%})	    
+	        $.ajax({
+    		data: parametros,
+    		url:"{%url 'display_messages'%}",
+    		type: 'post',
+    		success: function(response){
+      		$("#messages_container").html(response);
+    		},
+ 		});
 	    </script>    
     </div>
     <div class="message-input">
