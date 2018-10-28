@@ -98,7 +98,7 @@
 	    <script>
 	        $.ajax({
     		data: parametros,
-    		url:"{%url 'display_messages'%}",
+    		url:"{%url 'display_message'%}",
     		type: 'post',
     		success: function(response){
       		$("#messages_container").html(response);
