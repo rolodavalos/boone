@@ -120,6 +120,7 @@ var parametros = {
     data: parametros,
     url:"{%url 'display_messages'%}",
     type: 'post',
+    async: true,	 
     timeout: 5000,	 
     beforeSend: function() {
        $("#messages_container").html("<div class='col-12'><img src='{% static 'img/loading-icon.gif' %}'/><div>");
