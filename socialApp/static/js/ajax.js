@@ -16,7 +16,10 @@ $(document).ready(function(){
          success: function(response){
          $("#messages_container").html(response);    
          },   
-      });    
+      }); 
+      setInterval(function(){
+          $("#messages_container").html(response); 
+      },5000);
    });                             
 });
 
