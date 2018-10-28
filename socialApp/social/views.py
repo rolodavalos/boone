@@ -116,7 +116,7 @@ def viewMessage(request):
       messages= Message.objects.filter(conversation__pk=conversation.pk)
   else:
     conversation=conversations.first()
-    messages= list(Message.objects.filter(conversation__pk=conversation.pk).order_by('-modified'))
+    messages= list(Message.objects.filter(conversation__pk=conversation.pk).order_by('-created'))
   return render (request,'social/mensajes.html',{'conversations':conversations,'messages':messages,'conversation':conversation})       
   
 def displayMessage(request):
