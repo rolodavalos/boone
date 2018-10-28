@@ -3,7 +3,7 @@ $(document).ready(function(){
     console.log('click registered');
     var id = $(this).attr('id');
     console.log(id);
-    setInterval(function() {  
+      
       var parametros = {
          "conversation_id":id
          };  
@@ -15,6 +15,8 @@ $(document).ready(function(){
             $("#messages_container").html(response);    
             },   
          }); 
+      setInterval(function() {
+         $(this).click()
       },5000);
    });                             
 });
