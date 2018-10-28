@@ -57,35 +57,36 @@
     </div>
      <div id="contacts">
 	  <div id="contacts_content">
-	  	<ul id="conversations"> 
-        {%for conver in conversations%}
-	 <li class="contact" id="{{conver.id}}">  
-              <div class="wrap">
-		  {%if conver.estado == 1%}
-	       		<span class="contact-status busy"></span>
-          	  {%else%}
-              		 <span class="contact-status online"></span> 
-          	  {%endif%}    
-                  <img src="{% static 'img/whatsapp.png' %}" alt="" />
-                  <div class="meta">
-                    <p class="name">{{conver.contact_uid}}</p>
-                    <p class="preview">Disponible.</p>
-                  </div>
-             </div>
-          </li>
-        {%endfor%}
-      </ul>	       
-	     </div>         
+	    <ul id="conversations"> 
+	{%if conversations%}	    
+        	{%for conver in conversations%}
+	 	<li class="contact" id="{{conver.id}}">  
+              	<div class="wrap">
+		  	{%if conver.estado == 1%}
+	       			<span class="contact-status busy"></span>
+          	  	{%else%}
+              		 	<span class="contact-status online"></span> 
+          	  	{%endif%}    
+                  	<img src="{% static 'img/whatsapp.png' %}" alt="" />
+                  	<div class="meta">
+                   	 <p class="name">{{conver.contact_uid}}</p>
+                    	<p class="preview">Disponible.</p>
+                  	</div>
+             	</div>
+          	</li>
+        	{%endfor%}
+	{%endif%}		    
+      	</ul>	       
+	</div>         
     </div>
     <div id="bottom-bar">
       <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Agregar contacto</span></button>
       <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Configuraci&oacute;n</span></button>
     </div>
   </div>
-  <div class="content">
-     
-    <div id="contact-profile" class="contact-profile">
-	    <img src="http://www.baytekgames.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg" alt="" />
+  <div class="content"> 
+     <div id="contact-profile" class="contact-profile">
+	<img src="http://www.baytekgames.com/wp-content/uploads/2016/12/facebook-default-no-profile-pic1.jpg" alt="" />
       {%if conversation is not None%}
       <p>{{conversation.contact_uid}}</p>
       {%endif%}
@@ -98,20 +99,18 @@
 	  
     <div id="messages" class="messages">
 	    <ul>
-        {%for message in messages%}
-            {%if message.direction == 1%}
-                <li class="replies">
-            {%else%}
-                <li class="sent">    
-            {%endif%}
-                  <p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
-            </li>
-        {%endfor%}
-        <!--li class="replies">
-          <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-          <p>When you're backed against the wall, break the god damn thing down.</p>
-        </li-->
-</ul>     
+		{%if messages%}    
+        	{%for message in messages%}
+            		{%if message.direction == 1%}
+                		<li class="replies">
+            		{%else%}
+                		<li class="sent">    
+            		{%endif%}
+                  		<p><strong>{{message.message_text}}</strong><span class="time-meta pull-right">{{message.created|date:'d-m-y H:i'}}</span></p>
+            		</li>
+        	{%endfor%}
+      		{%endif%}
+		</ul>     
 <script>
     $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 </script>
