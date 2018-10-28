@@ -51,11 +51,11 @@
           {%else%}
             <li  id="conver_li" class="contact" onclick="display_message({{conver.pk}})">  
           {%endif%} 
-              {%if conversation.estado == 1%}
-                <script>
-                  $("#conver_li").last().effect("highlight", {}, 2000); 
-                </script>  
-              {%endif%}
+          
+           <script>
+             $("#conver_li").last().effect("highlight", {}, 2000); 
+           </script>  
+            
               <div class="wrap">
                   <span class="contact-status online"></span>
                   <img src="{% static 'img/whatsapp.png' %}" alt="" />
