@@ -101,6 +101,7 @@
     			"conversation_id":{{conversation.pk}}
   			};
   			$.ajax({
+				data: parametros,
     				url: "{%url 'display_message'%}",
 				type: 'post',
     				cache: false,
