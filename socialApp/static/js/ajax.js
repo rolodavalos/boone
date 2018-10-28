@@ -27,7 +27,7 @@ $(document).ready(function(){
          }); 
    });
    
-      setInterval(funcgtion(){
+      setInterval(function(){
            $.ajax({
             url:"/conversations/",  
             success: function(response){
