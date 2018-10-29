@@ -22,7 +22,7 @@ $(document).ready(function(){
             url:"/conversation/messages/",
             type: 'post',  
             beforeSend: function() {
-            $("#messages").html("<div class='col-12'><img src='/static/img/loading.gif'/><div>");
+            $("#messages").html("<div class='col-12'><img src='/static/img/loading2.gif'/><div>");
             },
             success: function(response){
             $("#messages").html(response);    
