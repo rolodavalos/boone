@@ -20,6 +20,7 @@ from social import views as social_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('social/', social_views.sendMessage,name='send_message'),
     path('demo/',social_views.demo),
     path('mensajes/',social_views.viewMessage,name='view_message'), 
     path('messages/',social_views.displayMessage,name='display_message'),
