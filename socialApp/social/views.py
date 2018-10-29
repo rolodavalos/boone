@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from datetime import datetime
 import urllib.request as urllib2
+from urllib.parse import urlencode
 
 
 #Custom imports
