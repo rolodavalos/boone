@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from datetime import datetime
 import urllib.request as urllib2
 from urllib.parse import urlencode
+from urllib.request import urlopen
 
 
 #Custom imports
