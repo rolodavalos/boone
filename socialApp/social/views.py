@@ -42,7 +42,7 @@ def sendMessage(request):
       text=form.cleaned_data.get("text")
       data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
-      response = urlopen.urlopen(req) 
+      response = urllib.request.urlopen(req) 
       data=json.load(response)
       #result = response.read()
       message=data['success']
