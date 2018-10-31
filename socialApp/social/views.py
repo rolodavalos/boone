@@ -36,11 +36,9 @@ def sendMessage(request):
     form=WhatForm(request.POST)
     if form.is_valid():
       to=form.cleaned_data.get("to")
-      
-      print(to)
-      
-      
       text=form.cleaned_data.get("text")
+      print("EL valor de to es: "+to)
+      print("EL valor de texto es: "+text)
       data = urllib.parse.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
       req = urllib2.Request(url, data) 
       response = urllib2.urlopen(req)
