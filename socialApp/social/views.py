@@ -47,7 +47,7 @@ def sendMessage(request):
       #result = response.read()
       #message=data['success']
       #print(message)
-      return render(request,'social/send.html',{'message':message,'whabox_list':whabox_list})  
+      return render(request,'social/send.html',{})  
   else:
     form=WhatForm()
   return render(request,'social/send.html')  
