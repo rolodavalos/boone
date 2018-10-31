@@ -42,14 +42,8 @@ def sendMessage(request):
       req = urllib2.Request(url, data) 
       response = urllib2.urlopen(req)
       
-      """
-      # 
-      with urllib2.urlopen(req,data=data) as f:
-          resp = f.read()
-      print(resp)
-      """
       
-      data=json.load(response)
+      #data=json.load(response)
       #result = response.read()
       #message=data['success']
       #print(message)
