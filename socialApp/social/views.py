@@ -8,20 +8,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from datetime import datetime
 import urllib.request as urllib2
-from urllib.parse import urlencode
-from urllib.request import urlopen
+import urllib
 
 
 #Custom imports
 from social.forms import WhatForm
 from social.models import Whabox, Conversation, Message
 
-"""
-#URL LIBRARY
-from urllib.request import Request
-from urllib.request import urlopen
-from urllib.parse import urlencode
-"""
 
 #JSON LIBRARY
 import json
@@ -40,9 +33,9 @@ def sendMessage(request):
     if form.is_valid():
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
-      data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
+      data = urllib.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
-      #response = urllib2.urlopen(req) 
+      response = urllib2.urlopen(req) 
       #data=json.load(response)
       #result = response.read()
       #message=data['success']
