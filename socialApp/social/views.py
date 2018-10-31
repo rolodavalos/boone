@@ -35,11 +35,11 @@ def sendMessage(request):
   if request.method=='POST':
     form=WhatForm(request.POST)
     if form.is_valid():
-      to=form.cleaned_data.get("to")
+      destino=form.cleaned_data.get("destino")
       text=form.cleaned_data.get("text")
-      print(to)
+      print(destino)
       print(text)
-      data = urllib.parse.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
+      data = urllib.parse.urlencode({"token":token,"uid":uid,"to":destino,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
       req = urllib2.Request(url, data) 
       response = urllib2.urlopen(req)
       
