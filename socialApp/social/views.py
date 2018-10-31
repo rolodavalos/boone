@@ -38,7 +38,6 @@ def sendMessage(request):
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
       data = urllib.parse.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
-      json.dump()
       req = urllib2.Request(url, data) 
       response = urllib2.urlopen(req)
       
