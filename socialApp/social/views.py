@@ -43,10 +43,10 @@ def sendMessage(request):
       data = urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}) 
       req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
       response = urllib2.urlopen(req) 
-      data=json.load(response)
+      #data=json.load(response)
       #result = response.read()
-      message=data['success']
-      print(message)
+      #message=data['success']
+      #print(message)
       return render(request,'social/send.html',{'message':message,'whabox_list':whabox_list})  
   else:
     form=WhatForm()
