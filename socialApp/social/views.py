@@ -39,7 +39,7 @@ def sendMessage(request):
       text=form.cleaned_data.get("text")
       print(destino)
       print(text)
-      data = urllib.parse.urlencode({"token":token,"uid":uid,"to":destino,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
+      data = urllib.parse.urlencode({"token":token,"uid":uid,"to":"595992647616","custom_uid":custom_uid,"text":text}).encode('utf-8') 
       req = urllib2.Request(url, data) 
       response = urllib2.urlopen(req)
       
