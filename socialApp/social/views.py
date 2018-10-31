@@ -21,12 +21,16 @@ import json
 
 # Create your views here.
 
+
+
+
 def demo(request):
   return render(request,'social/demo.html',{})  
   
 def sendMessage(request):
   token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
   uid='595991732060'
+  url='https://www.waboxapp.com/api/send/chat'
   custom_uid= get_random_string(length=15)
   if request.method=='POST':
     form=WhatForm(request.POST)
@@ -34,14 +38,18 @@ def sendMessage(request):
       to=form.cleaned_data.get("to")
       text=form.cleaned_data.get("text")
       data = urllib.parse.urlencode({"token":token,"uid":uid,"to":to,"custom_uid":custom_uid,"text":text}).encode('utf-8') 
-      req = urllib2.Request('https://www.waboxapp.com/api/send/chat', data) 
-      #response = urllib2.urlopen(req) 
+      json.dump()
+      req = urllib2.Request(url, data) 
+      response = urllib2.urlopen(req)
+      
+      """
+      # 
       with urllib2.urlopen(req,data=data) as f:
           resp = f.read()
       print(resp)
+      """
       
-      
-      #data=json.load(response)
+      data=json.load(response)
       #result = response.read()
       #message=data['success']
       #print(message)
