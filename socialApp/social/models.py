@@ -72,6 +72,15 @@ class Message(models.Model):
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	
+class wabox_message:
+	class Meta:
+    		managed = False
+	token=models.CharField(max_length=255)
+	uid=models.CharField(max_length=255)
+	url=models.CharField(max_length=255)
+	to=models.CharField(max_length=255)
+	
+	
 	
 	
 	
