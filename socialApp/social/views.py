@@ -100,7 +100,7 @@ def hooks(request):
     conversation.save()
     message.save()
       
-    return HttpResponse('pong')
+    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation}) 
   
 def viewMessage(request):
   conversations=None
