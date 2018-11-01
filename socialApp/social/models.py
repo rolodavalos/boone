@@ -93,7 +93,7 @@ class WhaboxSender:
 			 "custom_uid":self.custom_uid,
 			 "text":message
 			}
-		)encode('utf-8') 
+		) 
 		req = urllib2.Request(self.url,data); 
       	 	response = urllib2.urlopen(req);
 	 	dataj=json.load(response);
