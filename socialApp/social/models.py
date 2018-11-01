@@ -91,7 +91,6 @@ class WhaboxSender:
     result = response.read().decode('utf-8')
     #Obtener el resultado JSON
     obj=json.loads(result)
-    print("EL RESULTADO ES: "+obj)
     message=obj['success']
     return message
                 	
