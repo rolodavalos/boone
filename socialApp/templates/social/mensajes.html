@@ -115,8 +115,7 @@
         {%endfor%}
       		
 	</ul>  
-    </div>	   
-	 
+   	   	 
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="{%url 'send_message'%}" id="formConversation">
@@ -127,6 +126,8 @@
         </form> 
 	<script>
 	$("#formConversation").submit(function(event){
+	$('.text').val("");	
+	$(.text).	
 	event.preventDefault(); //prevent default action 
 	var post_url = $(this).attr("action"); //get form action url
 	var request_method = $(this).attr("method"); //get form GET/POST method
@@ -140,6 +141,7 @@
 	});
 	});
 	</script>      
+       </div>
       </div>
     </div>
   </div>	  	
