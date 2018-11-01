@@ -75,7 +75,7 @@ def hooks(request):
       conversation=Conversation()
       conversation.contact_uid=whabox.contact_uid
       conversation.message_cuid=get_random_string(length=15)
-      conversation.save()
+      
       
       #Accionar a la nueva conversacion
       token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
