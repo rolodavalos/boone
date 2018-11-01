@@ -57,9 +57,9 @@ def hooks(request):
     whabox.message_type=request.POST.get("message[type]")
     whabox.message_text=request.POST.get("message[body][text]")
     whabox.message_ack=request.POST.get("message[ack]")
-    whabox.save()
+    #whabox.save()
     
-    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid).exclude(estado=3)
+    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid)
     if conversations:
       conversation=conversations.first()
     else:
