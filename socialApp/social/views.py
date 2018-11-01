@@ -73,9 +73,9 @@ def hooks(request):
     else:
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
-      conversation.message_cuid=whabox.message_cuid
       conversation.contact_uid=whabox.contact_uid
       conversation.message_cuid=get_random_string(length=15)
+      conversation.save()
       
       #Accionar a la nueva conversacion
       token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
@@ -84,9 +84,9 @@ def hooks(request):
       custom_uid= get_random_string(length=15)   
       wbs= WhaboxSender(token,uid,url,custom_uid)
       text="Usted se ha comunicado a Pytyvo. En breve será atendido"
-      wbs.sendMessage(text,conversation.contact_uid)
+      result= wbs.sendMessage(text,conversation.contact_uid)
       
-      if wbs:
+      if result:
         print("Se ha enviado correctmente el mensaje")
       else:
         print("No se ha podido enviar el mensaje")
