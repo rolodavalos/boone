@@ -9,6 +9,7 @@ from django.http import HttpResponse
 from datetime import datetime
 import urllib.request as urllib2
 import urllib
+import time
 
 
 #Custom imports
@@ -37,7 +38,7 @@ def sendMessage(request):
       cid=form.cleaned_data.get("cid")
       wbs= WhaboxSender(token,uid,url,custom_uid)
       result=wbs.sendMessage(text,destino)
-      time.sleep(2)
+      time.sleep(.1500)
       conversation=Conversation.objects.get(pk=cid)
       return render (request,'social/messajes.html',{'conversation':conversation})
   else:
