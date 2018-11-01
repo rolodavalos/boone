@@ -1,5 +1,5 @@
 $(document).ready(function(){
-   $("#sendButton").on('click', function (e)  {
+   $("#sendButton").click(function (e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $("#formConversation")
     var url = form.attr('action');
