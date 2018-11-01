@@ -1,7 +1,7 @@
 $(document).ready(function(){
-   $("#formConversation").on('submit', function (e)  {
+   $("#sendButton").on('click', function (e)  {
     e.preventDefault(); // avoid to execute the actual submit of the form.
-    var form = $(this);
+    var form = $("#formConversation")
     var url = form.attr('action');
     $.ajax({
            type: "POST",
