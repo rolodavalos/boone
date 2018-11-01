@@ -38,7 +38,7 @@ def sendMessage(request):
       cid=form.cleaned_data.get("cid")
       wbs= WhaboxSender(token,uid,url,custom_uid)
       result=wbs.sendMessage(text,destino)
-      time.sleep(.1500)
+      time.sleep(.2500)
       conversation=Conversation.objects.get(pk=cid)
       return render (request,'social/messajes.html',{'conversation':conversation})
   else:
