@@ -85,6 +85,11 @@ def hooks(request):
       wbs= WhaboxSender(token,uid,url,custom_uid)
       text="Usted se ha comunicado a Pytyvo. En breve será atendido"
       wbs.sendMessage(text,conversation.contact_uid)
+      
+      if wbs:
+        print("Se ha enviado correctmente el mensaje")
+      else:
+        print("No se ha podido enviar el mensaje")
     
     #Trabajar por el mensaje
     message=Message()
