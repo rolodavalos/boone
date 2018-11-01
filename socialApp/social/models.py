@@ -78,29 +78,20 @@ class Message(models.Model):
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	
 class WhaboxSender:
-	def __init__(self, token, uid, url, custom_uid):
-		self.token = token
-		self.uid = uid
-		self.url = url
-		self.custom_uid = custom_uid
-    			
-	def sendMessage(self, message, to):
-	    	data = urllib.parse.urlencode(
-			{
-				"token":self.token,
-			 	"uid":self.uid,
-			 	"to":to,
-			 	"custom_uid":self.custom_uid,
-			 	"text":message
-			}
-		).encode('utf-8') 
-		req = urllib2.Request(self.url,data)
-      	 	response = urllib2.urlopen(req)
-	 	dataj=json.load(response)
-      	 	result = response.read()
-      	 	message=dataj['success']
-	 	return message
-        	
+  def __init__(self, token, uid, url, custom_uid):
+    self.token = token
+    self.uid = uid
+    self.url = url
+    self.custom_uid = custom_uid
+          
+  def sendMessage(self, message, to):
+    data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
+    req = urllib2.Request(self.url,data)
+    response = urllib2.urlopen(req)
+    dataj=json.load(response)
+    result = response.read()
+    message=dataj['success']
+    return message
                 	
 	
 	
