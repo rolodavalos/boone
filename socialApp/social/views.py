@@ -34,21 +34,12 @@ def sendMessage(request):
     if form.is_valid():
       destino=form.cleaned_data.get("destino")
       text=form.cleaned_data.get("text")
-      print(destino)
-      print(text)
-      data = urllib.parse.urlencode({"token":token,"uid":uid,"to":"595992647616","custom_uid":custom_uid,"text":text}).encode('utf-8') 
-      req = urllib2.Request(url, data) 
-      response = urllib2.urlopen(req)
-      
-      
-      #data=json.load(response)
-      #result = response.read()
-      #message=data['success']
-      #print(message)
-      return render(request,'social/send.html',{})  
+      wbs= WhaboxSender(token,uid,url,custom_uid)
+      result=wbs.sendMessage(text,destino)
+      return render(request,'/messages/')  
   else:
     form=WhatForm()
-  return render(request,'social/send.html')  
+  return render(request,'/messages/')  
 
 def hooks(request):
   if request.method=='POST':
@@ -74,7 +65,7 @@ def hooks(request):
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
       conversation.contact_uid=whabox.contact_uid
-      conversation.message_cuid=get_random_string(length=15)
+      conversation.message_cuid=get_random_string(length=32)
            
       #Accionar a la nueva conversacion
       token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
