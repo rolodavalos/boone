@@ -115,7 +115,27 @@
         {%endfor%}
       		
 	</ul>  
-   </div>	   	 
+   </div>
+    <script>    
+	function refresh_messages(){    
+	     var parametros = {
+         	"conversation_id":id
+             };
+	    
+	    $.ajax({
+			url : "/mensajes/",
+			type: POST,
+			data : parametros,
+			beforeSend: function() {
+            		$("#messages").html("<div class='col-12'><img src='/static/img/loading3.gif'/><div>");
+            		},
+			success: function(response){ 
+			$("#messages").html(response);
+			},	
+		});
+		setInterval(refresh_messages,1000)
+	}
+    </script>  
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="{%url 'send_message'%}" id="formConversation">
