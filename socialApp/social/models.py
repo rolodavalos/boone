@@ -84,12 +84,13 @@ class WhaboxSender:
     self.url = url
     self.custom_uid = custom_uid
           
-  def sendMessage(self, message, to):
-    data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
+  def sendMessage(self, message, to):	
+	data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
     req = urllib2.Request(self.url,data)
     response = urllib2.urlopen(req)
+	result = response.read()
+	#Obtener el resultado JSON
     dataj=json.load(response.decode('utf-8'))
-    result = response.read()
     message=dataj['success']
     return message
                 	
