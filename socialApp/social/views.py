@@ -21,9 +21,6 @@ import json
 
 # Create your views here.
 
-
-
-
 def demo(request):
   return render(request,'social/demo.html',{})  
   
@@ -70,34 +67,38 @@ def hooks(request):
     whabox.message_ack=request.POST.get("message[ack]")
     whabox.save()
     
-    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid)
+    conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid).exclude(estado=3)
     if conversations:
-      conversation=conversations.first()
-      message=Message()
-      message.conversation=conversation
-      message.message_text=whabox.message_text
-      message.estado=whabox.message_ack
-      conversation.estado=1
-      message.direction=1
-      message.save() 
-      conversation.save()    
+      conversation=conversation.first()
     else:
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
       conversation.message_cuid=whabox.message_cuid
       conversation.contact_uid=whabox.contact_uid
-      conversation.estado=1
-      conversation.red=2
-      conversation.save()
+      conversation.message_cuid=get_random_string(length=15)
       
-      #Guardar mensaje
-      message=Message()
-      message.conversation=conversation
-      message.message_text=whabox.message_text
-      message.estado=whabox.message_ack
-      message.direction=1
-      message.save()
+      #Accionar a la nueva conversacion
+      token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
+      uid='595991732060'
+      url='https://www.waboxapp.com/api/send/chat'
+      custom_uid= get_random_string(length=15)   
+      wbs= WhaboxSender(token,uid,url,custom_uid)
+      text="Usted se ha comunicado a Pytyvo. En breve será atendido"
+      wbs.sendMessage(text,conversation.contact_uid)
     
+    #Trabajar por el mensaje
+    message=Message()
+    message.conversation=conversation
+    message.message_text=whabox.message_text
+    message.estado=whabox.message_ack
+    message.direction=1
+    conversation.estado=1
+    conversation.red=2
+    
+    #Grabar
+    conversation.save()
+    message.save()
+      
     return HttpResponse('pong')
   
 
