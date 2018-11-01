@@ -95,7 +95,7 @@ def hooks(request):
     message.conversation=conversation
     message.message_text=whabox.message_text
     message.estado=whabox.message_ack
-    if whabox.message_dir=='I':
+    if whabox.message_dir=='i':
       message.direction=1
     else:
       message.direction=2
