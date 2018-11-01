@@ -13,7 +13,7 @@ import urllib
 
 #Custom imports
 from social.forms import WhatForm
-from social.models import Whabox, Conversation, Message
+from social.models import Whabox, Conversation, Message, WhaboxSender
 
 
 #JSON LIBRARY
