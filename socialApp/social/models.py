@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 import urllib.request as urllib2
 import urllib
 import json
+import time
 
 class Whabox(models.Model):
 	event=models.CharField(max_length=255,null=True)
@@ -92,6 +93,7 @@ class WhaboxSender:
     #Obtener el resultado JSON
     obj=json.loads(result)
     message=obj['success']
+    time.sleep(.5000)	
     return message
                 	
 	
