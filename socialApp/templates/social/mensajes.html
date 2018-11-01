@@ -132,10 +132,12 @@
 			success: function(response){ 
 			$("#messages").html(response);
 			},	
-		});
-		setInterval(refresh_messages,1000)
+		});	
 	}
 	refresh_messages(); 
+	setInterval(function(){
+    		refresh_messages() // this will run after every 5 seconds
+	}, 1000);    
     </script>  
     <div class="message-input">
       <div class="wrap">
