@@ -34,9 +34,10 @@ def sendMessage(request):
     if form.is_valid():
       destino=form.cleaned_data.get("destino")
       text=form.cleaned_data.get("text")
+      cid=form.cleaned_data.get("cid")
       wbs= WhaboxSender(token,uid,url,custom_uid)
       result=wbs.sendMessage(text,destino)
-      conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
+      conversation=Conversation.objects.get(pk=cid)
       return render (request,'social/messajes.html',{'conversation':conversation})
   else:
     form=WhatForm()
