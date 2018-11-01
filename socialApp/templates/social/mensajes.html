@@ -119,9 +119,8 @@
     <script>    
 	function refresh_messages(){    
 	     var parametros = {
-         	"conversation_id":id
+         	"conversation_id":{{conversation.pk}}
              };
-	    
 	    $.ajax({
 			url : "/mensajes/",
 			type: POST,
