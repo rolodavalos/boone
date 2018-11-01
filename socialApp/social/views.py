@@ -28,7 +28,7 @@ def sendMessage(request):
   token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
   uid='595991732060'
   url='https://www.waboxapp.com/api/send/chat'
-  custom_uid= get_random_string(length=15)
+  custom_uid= get_random_string(length=32)
   if request.method=='POST':
     form=WhatForm(request.POST)
     if form.is_valid():
@@ -75,8 +75,7 @@ def hooks(request):
       conversation=Conversation()
       conversation.contact_uid=whabox.contact_uid
       conversation.message_cuid=get_random_string(length=15)
-      
-      
+           
       #Accionar a la nueva conversacion
       token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
       uid='595991732060'
@@ -96,7 +95,10 @@ def hooks(request):
     message.conversation=conversation
     message.message_text=whabox.message_text
     message.estado=whabox.message_ack
-    message.direction=1
+    if whabox.message_dir=='I':
+      message.direction=1
+    else:
+      message.direction=2
     conversation.estado=1
     conversation.red=2
     
