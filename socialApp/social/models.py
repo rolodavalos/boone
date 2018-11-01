@@ -86,7 +86,7 @@ class WhaboxSender():
     			
 	def sendMessage(self,message,to):
 		data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
-      		req = urllib2.Request(self.url, data) 
+      		req = urllib2.Request(self.url,data) 
       		response = urllib2.urlopen(req)
 		data=json.load(response)
       		result = response.read()
