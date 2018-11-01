@@ -125,10 +125,24 @@
         <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
         <button class="submit" id="sendButton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form> 
+	<script>
+	$("#formConversation").submit(function(event){
+	event.preventDefault(); //prevent default action 
+	var post_url = $(this).attr("action"); //get form action url
+	var request_method = $(this).attr("method"); //get form GET/POST method
+	var form_data = $(this).serialize(); //Encode form elements for submission
+	$.ajax({
+		url : post_url,
+		type: request_method,
+		data : form_data
+		}).done(function(response){ //
+		$("#messages").html(response);
+	});
+	});
+	</script>      
       </div>
     </div>
-  </div>
- 		  	
+  </div>	  	
 </div>
 <!--script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script-->
 <script>
@@ -170,7 +184,6 @@ $("#contacts ul li").click(function(){
   $(this).addClass("active");
 });  
    
-      
 </script>
 
 
