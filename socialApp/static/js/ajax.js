@@ -1,21 +1,4 @@
-$(document).ready(function(){
-  $("formConversation").on("submit",function(e){ {
-    var form = $(this)
-    var url = form.attr('action');
-    $.ajax({
-           type: "POST",
-           url: url,
-           data: form.serialize(), // serializes the form's elements.
-           beforeSend: function() {
-            $("#messages").html("<div class='col-12'><img src='/static/img/loading3.gif'/><div>");
-            },
-           success: function(response){
-            $("#messages").html(response);    
-            },    
-         });   
-       e.preventDefault(); // avoid to execute the actual submit of the form.
-   });
-   
+$(document).ready(function(){  
    $("#busy").effect("highlight", {}, 2000); 
    
    $('#conversations').on('click', 'li', function() {
