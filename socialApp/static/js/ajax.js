@@ -1,6 +1,6 @@
 $(document).ready(function(){
-   $("#sendButton").on("click",function (e) {
-    var form = $("#formConversation")
+  $("formConversation").on("submit",function(e){ {
+    var form = $(this)
     var url = form.attr('action');
     $.ajax({
            type: "POST",
