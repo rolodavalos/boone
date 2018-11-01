@@ -90,7 +90,7 @@ class WhaboxSender:
     response = urllib2.urlopen(req)
     result = response.read().decode('utf-8')
     #Obtener el resultado JSON
-    dataj=json.load(response)
+    dataj=json.loads(response)
     message=dataj['success']
     return message
                 	
