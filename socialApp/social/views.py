@@ -100,7 +100,6 @@ def hooks(request):
       
     return HttpResponse('pong')
   
-
 def viewMessage(request):
   conversations=None
   conversations=Conversation.objects.order_by('-modified')
