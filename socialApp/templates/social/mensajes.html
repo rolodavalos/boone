@@ -120,7 +120,8 @@
     <div class="message-input">
       <div class="wrap">
         <form method="POST" action="#" id="formConversation">
-        <input type="text" name="text" placeholder="Escriba su mensaje..." autocomplete="off" />
+        <input type="hidden" name="destino" value="{{conversation.contact_uid}}"/>
+	<input type="text" name="text" placeholder="Escriba su mensaje..." autocomplete="off" />
         <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
         <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form> 
