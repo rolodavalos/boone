@@ -76,7 +76,7 @@ class Message(models.Model):
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	
-class WhaboxSender():
+class WhaboxSender:
 	
 	def __init__(self, token, uid,url,custom_uid):
 		self.token = token
