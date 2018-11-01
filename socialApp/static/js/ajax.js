@@ -1,4 +1,20 @@
 $(document).ready(function(){
+   $("#formConversation").submit(function(e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+    var form = $(this);
+    var url = form.attr('action');
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(), // serializes the form's elements.
+           beforeSend: function() {
+            $("#messages").html("<div class='col-12'><img src='/static/img/loading3.gif'/><div>");
+            },
+           success: function(response){
+            $("#messages").html(response);    
+            },    
+         });   
+   });
    
    $("#busy").effect("highlight", {}, 2000); 
    
