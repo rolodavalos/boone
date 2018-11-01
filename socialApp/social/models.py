@@ -76,16 +76,17 @@ class Message(models.Model):
 	created=models.DateTimeField(auto_now_add=True)
 	user=models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 	
-class wabox_message:
-	class Meta:
-    		managed = False
-	token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
-	uid='595991732060'
-	url='https://www.waboxapp.com/api/send/chat'
-	custom_uid= get_random_string(length=15)
+class WhaboxSender():
+	
+	def __init__(self, token, uid,url,custom_uid):
+		self.token = token
+		self.uid = uid
+		self.url = url
+		self.custom_uid = custom_uid
+    			
 	def sendMessage(self,message,to):
 		data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
-      		req = urllib2.Request(url, data) 
+      		req = urllib2.Request(self.url, data) 
       		response = urllib2.urlopen(req)
 		data=json.load(response)
       		result = response.read()
