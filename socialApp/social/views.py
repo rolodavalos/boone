@@ -36,10 +36,11 @@ def sendMessage(request):
       text=form.cleaned_data.get("text")
       wbs= WhaboxSender(token,uid,url,custom_uid)
       result=wbs.sendMessage(text,destino)
-      return render(request,'/messages/')  
+      conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
+      return render (request,'social/messajes.html',{'conversation':conversation})
   else:
     form=WhatForm()
-  return render(request,'/messages/')  
+  return render (request,'social/messajes.html',{'conversation':conversation})
 
 def hooks(request):
   if request.method=='POST':
