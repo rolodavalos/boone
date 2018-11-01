@@ -99,8 +99,7 @@ def hooks(request):
     #Grabar
     conversation.save()
     message.save()
-      
-    return render (request,'social/mensajes.html',{'conversations':conversations,'conversation':conversation}) 
+       
   
 def viewMessage(request):
   conversations=None
