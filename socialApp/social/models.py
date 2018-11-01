@@ -4,6 +4,10 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+#Custom imports
+import urllib.request as urllib2
+import urllib
+
 class Whabox(models.Model):
 	event=models.CharField(max_length=255)
 	token=models.CharField(max_length=255)
@@ -75,10 +79,19 @@ class Message(models.Model):
 class wabox_message:
 	class Meta:
     		managed = False
-	token=models.CharField(max_length=255)
-	uid=models.CharField(max_length=255)
-	url=models.CharField(max_length=255)
-	to=models.CharField(max_length=255)
+	token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
+	uid='595991732060'
+	url='https://www.waboxapp.com/api/send/chat'
+	custom_uid= get_random_string(length=15)
+	def sendMessage(self,message,to):
+		data = urllib.parse.urlencode({"token":self.token,"uid":self.uid,"to":to,"custom_uid":self.custom_uid,"text":message}).encode('utf-8') 
+      		req = urllib2.Request(url, data) 
+      		response = urllib2.urlopen(req)
+		data=json.load(response)
+      		result = response.read()
+      		message=data['success']
+		return message
+	
 	
 	
 	
