@@ -69,7 +69,7 @@ def hooks(request):
     
     conversations= Conversation.objects.filter(contact_uid=whabox.contact_uid).exclude(estado=3)
     if conversations:
-      conversation=conversation.first()
+      conversation=conversations.first()
     else:
       #Crear nueva conversacion y adjuntar el mensaje
       conversation=Conversation()
