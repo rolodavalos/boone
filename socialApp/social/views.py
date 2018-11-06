@@ -132,7 +132,7 @@ def displayMessages4Conversation(request):
 
 def viewDashboard(request):
   conversations=Conversation.objects.filter(user__isnull=True)
-  print("La cantidad de mensajes es: "+conversations.count())
+  print("La cantidad de mensajes es: "+str(conversations.count()))
   return render (request, 'social/supervisor/dashboard.html',{conversations:conversations})
   
   
