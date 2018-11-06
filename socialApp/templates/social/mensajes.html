@@ -116,7 +116,8 @@
       		
 	</ul>  
    </div>
-    <script>    
+    <script>   
+	setInterval(refresh_messages, 5000);    
 	function refresh_messages(){    
 	     var parametros = {
          	"conversation_id":{{conversation.pk}}
@@ -129,11 +130,7 @@
 			$("#messages").html(response);
 			},	
 		});	
-	}
-	refresh_messages(); 
-	setInterval(function(){
-    		refresh_messages() // this will run after every 5 seconds
-	}, 5000);    
+	}   
     </script>  
     <div class="message-input">
       <div class="wrap">
