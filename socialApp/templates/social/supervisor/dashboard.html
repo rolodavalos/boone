@@ -22,11 +22,7 @@
                     <i class="fas fa-fw fa-comments"></i>
                   </div>
                   <div class="mr-5">
-                     {%if conversartions%}
-                        {{conversations|length}} mensajes en cola.
-                     {%else%}
-                        0 mensajes en cola.
-                     {%endif%}        
+                     {{conversations.count}} mensajes en cola.
                    </div>
                 </div>
                 <a class="card-footer text-white clearfix small z-1" href="#">
