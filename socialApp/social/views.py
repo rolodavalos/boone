@@ -116,7 +116,6 @@ def listConversations(request):
   conversations=Conversation.objects.order_by('-modified')
   return render (request,'social/contacts_content.html',{'conversations':conversations})
 
-
 def showContact(request):
   if request.method=='POST':
     conversation_id=request.POST.get('conversation_id')
@@ -130,6 +129,10 @@ def showContact(request):
 def displayMessages4Conversation(request):
   conversation=Conversation.objects.get(pk=request.POST.get('conversation_id'))
   return render (request,'social/messajes.html',{'conversation':conversation})
+
+def viewDashboard(request):
+  conversations=Conversation.objects.filter(user__isnull=True)
+  return render (request, 'social/supervisor/dashboard.html',{conversations:conversations})
   
   
       
