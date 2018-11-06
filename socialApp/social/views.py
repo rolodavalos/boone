@@ -26,8 +26,8 @@ def demo(request):
   return render(request,'social/demo.html',{})  
   
 def sendMessage(request):
-  token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
-  uid='595991732060'
+  token='d42dbfc3434f650ed58b33e4955fa9cc5be1dd2f26439'
+  uid='595995620462'
   url='https://www.waboxapp.com/api/send/chat'
   custom_uid= get_random_string(length=32)
   if request.method=='POST':
@@ -71,8 +71,8 @@ def hooks(request):
       conversation.message_cuid=get_random_string(length=32)
            
       #Accionar a la nueva conversacion
-      token='fdbd4dc698df7344218dd467936d0a585bc89b7c07135'
-      uid='595991732060'
+      token='d42dbfc3434f650ed58b33e4955fa9cc5be1dd2f26439'
+      uid='595995620462'
       url='https://www.waboxapp.com/api/send/chat'
       custom_uid= get_random_string(length=15)   
       wbs= WhaboxSender(token,uid,url,custom_uid)
