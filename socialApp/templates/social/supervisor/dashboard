@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+{% load static %}
+{%block head_content%}
+
+{%endblock%}
+{%block container%}
+<div class="container-fluid">
+
+</div>
+{%endblock%}
