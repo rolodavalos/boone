@@ -144,7 +144,7 @@
 	<script>
 	$("#formConversation").submit(function(event){		
 		event.preventDefault(); //prevent default action 
-		$("#texto").val( "" );
+		
 		var post_url = $(this).attr("action"); //get form action url
 		var request_method = $(this).attr("method"); //get form GET/POST method
 		var form_data = $(this).serialize(); //Encode form elements for submission
@@ -157,6 +157,7 @@
             		},
 			success: function(response){ 
 			$("#messages").html(response);
+			$("#texto").val( "" );	
 			},	
 		});
 	});
