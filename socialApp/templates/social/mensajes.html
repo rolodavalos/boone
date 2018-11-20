@@ -143,7 +143,10 @@
         </form> 
 	<script>
 	$("#formConversation").submit(function(event){
-		$('.text').val("");		
+		$('input:text').click(
+   		 function(){
+        	$(this).val('');
+   		 });		
 		event.preventDefault(); //prevent default action 
 		var post_url = $(this).attr("action"); //get form action url
 		var request_method = $(this).attr("method"); //get form GET/POST method
