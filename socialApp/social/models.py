@@ -97,10 +97,10 @@ class WhaboxSender:
                 	
 class Agente(models.Model):
 	STATUS = (
-    (1, ("Abierto")),
-    (2, ("En proceso")),
-    (3, ("Resuelto")),
-    (4, ("Cerrado"))
+    (1, ("En linea")),
+    (2, ("Ocupado")),
+    (3, ("Receso")),
+    (4, ("Baño"))
 	)
 	user=models.OneToOneField(User, on_delete=models.CASCADE)
 	created=models.DateTimeField(auto_now_add=True)
