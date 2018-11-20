@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from django.contrib.auth import authenticate, login, logout
+
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -142,12 +145,19 @@ def upateStatus(request):
   agente.estado=estado
   agente.save()
   
-def login(request):
-  if request.method=='POST':
-		form=LoginForm(request.POST)
-		if form.is_valid():
-	else:
-		form=TicketForm()
+def login_view(request):
+    """Login view."""
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user:
+            login(request, user)
+            return redirect('create_ticket')
+        else:
+            return render(request, 'users/login.html', {'error': 'Usuario o password inválido'})
+
+    return render(request, 'users/login.html')
   
   
   
