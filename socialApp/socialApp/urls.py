@@ -32,6 +32,7 @@ urlpatterns = [
     
     """Esto es para agente""""
     path('agente/estado/',social_views.updateStatus,name='update_status'),
+    path('agente/login/', social_views.login,name='login'),
     
     
 ]
