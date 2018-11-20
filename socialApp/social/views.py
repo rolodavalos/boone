@@ -14,7 +14,7 @@ import time
 
 #Custom imports
 from social.forms import WhatForm
-from social.models import Whabox, Conversation, Message, WhaboxSender
+from social.models import Whabox, Conversation, Message, WhaboxSender,Agente
 
 
 #JSON LIBRARY
@@ -134,6 +134,16 @@ def viewDashboard(request):
   conversations=Conversation.objects.filter(user__isnull=True)
   print("La cantidad de mensajes es: "+str(conversations.count()))
   return render (request, 'social/supervisor/dashboard.html',{'conversations':conversations})
+
+def upateStatus(request):
+  estado= request.POST.get('agent_status')
+  id_agente= request.POST.get('agent_id')
+  agente= Agente.objects.get('id_agente')
+  agente.estado=estado
+  agente.save()
+  
+  
+  
   
   
       
