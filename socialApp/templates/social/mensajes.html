@@ -137,17 +137,14 @@
         <form method="POST" action="{%url 'send_message'%}" id="formConversation">
 	<input type="hidden" name="cid" value="{{conversation.pk}}"/>
         <input type="hidden" name="destino" value="{{conversation.contact_uid}}"/>
-	<input type="text" name="text" placeholder="Escriba su mensaje..." autocomplete="off" />
+	<input type="text" name="texto" id="texto" placeholder="Escriba su mensaje..." autocomplete="off" />
         <i class="fa fa-paperclip attachment" aria-hidden="true"></i>
         <button class="submit" id="sendButton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
         </form> 
 	<script>
-	$("#formConversation").submit(function(event){
-		$('input:text').click(
-   		 function(){
-        	$(this).val('');
-   		 });		
+	$("#formConversation").submit(function(event){		
 		event.preventDefault(); //prevent default action 
+		$("#texto").val( "" );
 		var post_url = $(this).attr("action"); //get form action url
 		var request_method = $(this).attr("method"); //get form GET/POST method
 		var form_data = $(this).serialize(); //Encode form elements for submission
@@ -156,8 +153,7 @@
 			type: request_method,
 			data : form_data,
 			beforeSend: function() {
-            		$("#messages").html("<div class='col-12'><img src='/static/img/loading3.gif'/><div>");
-			setTimeout(3000);	
+            		$("#messages").html("<div class='col-12'><img src='/static/img/loading3.gif'/><div>");	
             		},
 			success: function(response){ 
 			$("#messages").html(response);
