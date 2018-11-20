@@ -93,9 +93,22 @@ class WhaboxSender:
     #Obtener el resultado JSON
     obj=json.loads(result)
     message=obj['success']
-    time.sleep(.5000)	
     return message
                 	
+class Agente(models.Model):
+	STATUS = (
+    (1, ("Abierto")),
+    (2, ("En proceso")),
+    (3, ("Resuelto")),
+    (4, ("Cerrado"))
+	)
+	user=models.OneToOneField(User, on_delete=models.CASCADE)
+	created=models.DateTimeField(auto_now_add=True)
+	modified=models.DateTimeField(auto_now=True)
+	estado= models.IntegerField(choices=STATUS)
+	
+	def __str__(self):
+		return self.user.username
 	
 	
 	
