@@ -34,5 +34,9 @@ urlpatterns = [
     path('agente/estado/',social_views.updateStatus,name='update_status'),
     path('agente/login/', social_views.login,name='login'),
     
+    """Login Logout agent"""
+    path('users/login/', users_views.login_view, name='login'),
+     path('users/logout/', users_views.login_view, name='logout'),
+    
     
 ]
