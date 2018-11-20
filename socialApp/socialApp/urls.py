@@ -30,4 +30,8 @@ urlpatterns = [
     path('conversation/messages/',social_views.displayMessages4Conversation, name="display_messages"),
     path('supervisor/',social_views.viewDashboard,name="view_dashboard"),
     
+    """Esto es para agente""""
+    path('agente/estado/',social_views.updateStatus,name='update_status'),
+    
+    
 ]
