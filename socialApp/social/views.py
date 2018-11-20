@@ -142,6 +142,16 @@ def upateStatus(request):
   agente.estado=estado
   agente.save()
   
+def login(request):
+  if request.method=='POST':
+		form=LoginForm(request.POST)
+		if form.is_valid():
+	else:
+		form=TicketForm()
+  
+  
+  
+  
   
   
   
