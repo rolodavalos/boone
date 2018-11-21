@@ -35,8 +35,8 @@ urlpatterns = [
     path('agente/login/', social_views.login,name='login'),
     
    
-    path('users/login/', users_views.login_view, name='login'),
-    path('users/logout/', users_views.login_view, name='logout'),
+    path('users/login/', social_views.login_view, name='login'),
+    path('users/logout/', social_views.login_view, name='logout'),
     
     
 ]
