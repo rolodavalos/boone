@@ -145,7 +145,7 @@ def updateStatus(request):
   agente.estado=estado
   agente.save()
   
-def login_view(request):
+def login(request):
     """Login view."""
     if request.method == 'POST':
         username = request.POST['username']
