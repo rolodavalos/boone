@@ -32,7 +32,6 @@ urlpatterns = [
     
   
     path('users/login/', social_views.login_view, name='login'),
-    path('users/logout/', social_views.logout_view, name='logout'),
-    
+   
     
 ]
