@@ -138,7 +138,7 @@ def viewDashboard(request):
   print("La cantidad de mensajes es: "+str(conversations.count()))
   return render (request, 'social/supervisor/dashboard.html',{'conversations':conversations})
 
-def upateStatus(request):
+def updateStatus(request):
   estado= request.POST.get('agent_status')
   id_agente= request.POST.get('agent_id')
   agente= Agente.objects.get('id_agente')
