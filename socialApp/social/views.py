@@ -155,8 +155,8 @@ def login_view(request):
             login(request, user)
             return redirect('view_message')
         else:
-            return render(request, 'users/login.html', {'error': 'Usuario o password inválido'})
-    return render(request, 'users/login.html')
+            return render(request, 'social/agent/login.html', {'error': 'Usuario o password inválido'})
+    return render(request, 'social/agent/login.html')
   
   
   
