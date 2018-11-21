@@ -31,7 +31,7 @@ urlpatterns = [
     path('supervisor/',social_views.viewDashboard,name="view_dashboard"),
     
   
-    path('users/login/', social_views.login_view, name='login'),
+    path('agente/login/', social_views.login_view, name='login'),
    
     
 ]
