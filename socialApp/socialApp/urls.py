@@ -30,13 +30,9 @@ urlpatterns = [
     path('conversation/messages/',social_views.displayMessages4Conversation, name="display_messages"),
     path('supervisor/',social_views.viewDashboard,name="view_dashboard"),
     
-   
-    path('agente/estado/',social_views.updateStatus,name='update_status'),
-    path('agente/login/', social_views.login,name='login'),
-    
-   
+  
     path('users/login/', social_views.login_view, name='login'),
-    path('users/logout/', social_views.login_view, name='logout'),
+    path('users/logout/', social_views.logout_view, name='logout'),
     
     
 ]
