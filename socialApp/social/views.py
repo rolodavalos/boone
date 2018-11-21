@@ -153,7 +153,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return redirect('create_ticket')
+            return redirect('view_message')
         else:
             return render(request, 'users/login.html', {'error': 'Usuario o password inválido'})
 
