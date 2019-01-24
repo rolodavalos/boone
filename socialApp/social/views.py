@@ -75,7 +75,7 @@ def hooks(request):
            
       #Accionar a la nueva conversacion
       token='d42dbfc3434f650ed58b33e4955fa9cc5be1dd2f26439'
-      uid='595995620462'
+      uid='595974108801'
       url='https://www.waboxapp.com/api/send/chat'
       custom_uid= get_random_string(length=15)   
       wbs= WhaboxSender(token,uid,url,custom_uid)
