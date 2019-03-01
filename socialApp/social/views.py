@@ -47,6 +47,26 @@ def sendMessage(request):
     form=WhatForm()
   return render (request,'social/messajes.html',{'conversation':conversation})
 
+def sendMessage2(request):
+  token='d42dbfc3434f650ed58b33e4955fa9cc5be1dd2f26439'
+  uid='595974108801'
+  url='https://www.waboxapp.com/api/send/chat'
+  custom_uid= get_random_string(length=32)
+  if request.method=='POST':
+    form=WhatForm(request.POST)
+    if form.is_valid():
+      destino=form.cleaned_data.get("destino")
+      text=form.cleaned_data.get("text")
+      cid=form.cleaned_data.get("cid")
+      wbs= WhaboxSender(token,uid,url,custom_uid)
+      result=wbs.sendMessage(text,destino)
+      conversation=Conversation.objects.get(pk=cid)
+      return render (request,'social/messajes.html')
+  else:
+    form=WhatForm()
+  return render (request,'social/messajes.html')
+
+
 def hooks(request):
   if request.method=='POST':
     whabox= Whabox()
