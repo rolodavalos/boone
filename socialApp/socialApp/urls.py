@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('social/', social_views.sendMessage,name='send_message'),
     path('demo/',social_views.demo),
-    path('send/',social_views.send),
+    path('send/',social_views.send,name='send'),
     path('agente/',social_views.viewMessage,name='view_message'), 
     path('messages/',social_views.displayMessage,name='display_message'),
     path('hooks',social_views.hooks,name='hooks'),
