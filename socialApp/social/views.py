@@ -27,6 +27,10 @@ import json
 
 def demo(request):
   return render(request,'social/demo.html',{})  
+
+
+def send(request):
+  return render(request,'social/send.html',{})  
   
 def sendMessage(request):
   token='d42dbfc3434f650ed58b33e4955fa9cc5be1dd2f26439'
